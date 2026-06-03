@@ -584,10 +584,31 @@ textarea.cf-in{resize:vertical;min-height:130px}
 
 /* ── MOBILE (max 600px) ── */
 @media(max-width:600px){
-  body{cursor:auto}
+  body{
+    cursor:auto;
+    --g:#8a9bbf;--g2:#1c2a45;--bg:transparent;--bg2:transparent;--bg3:#0a1830;
+    background:
+      radial-gradient(ellipse at 65% 15%, rgba(30,90,255,.5) 0%, transparent 50%),
+      radial-gradient(ellipse at 15% 55%, rgba(20,60,220,.4) 0%, transparent 45%),
+      radial-gradient(ellipse at 55% 85%, rgba(40,80,230,.35) 0%, transparent 45%),
+      #030b1f !important
+  }
+  #hero,#about,#work,#projects,#skills,#spotlight,#education,#contact{background:transparent !important}
+  .wc,.bc,.edu-card,.ts3{background:rgba(6,15,35,.9) !important}
+  .pcard{background:rgba(6,15,35,.9) !important}
   #cur,#cur2{display:none}
+  /* Fix all hardcoded dark colors */
+  .edu-period,.edu-location,.cf-lbl{color:#7a8fb5}
+  .cf-in::placeholder{color:#5a6f95}
+  .cf-in{color:#c8d4f0;border-color:rgba(65,105,225,.25)}
+  .pcard-desc{color:rgba(255,255,255,.75);max-height:none !important;opacity:1 !important}
+  .achip{color:#8a9bbf;border-color:rgba(100,130,200,.2)}
+  .wc-dots li,.wc-role,.wc-period,.bs,.sp2,.fi,.about-p,.hdesc{color:#8a9bbf}
+  .ft{color:#7a8fb5}
+  .eye{color:#6f9fff}
+  .alink{color:#8a9bbf;border-color:rgba(100,130,200,.2)}
   #hcanvas,#dhaka-clock,#sec-counter,#btt,#cur-halo,#dock,#cur,#cur2{display:none !important}
-  #hero{min-height:100svh !important;background:linear-gradient(160deg,#03060f 0%,#060e20 50%,#03060f 100%) !important}
+  #hero{min-height:100svh !important;background:transparent !important}
   .hero-inner{display:block !important;padding:32vh 4vw 40px !important}
   .hero-inner>div:first-child{display:block}
   .hero-right{margin-top:1.5rem;max-width:100% !important;align-items:flex-start !important}
@@ -797,9 +818,8 @@ textarea.cf-in{resize:vertical;min-height:130px}
         <span class="achip">Cloud</span>
       </div>
       <div class="about-links">
-        <a href="mailto:jaforakib@gmail.com" class="alink">✉ Email Me</a>
         <a href="https://www.linkedin.com/in/akib-jafor" target="_blank" class="alink">↗ LinkedIn</a>
-        <a href="tel:+8801673167567" class="alink">📞 Call</a>
+        <a href="https://wa.me/8801673167567" target="_blank" class="alink">💬 WhatsApp</a>
       </div>
     </div>
   </div>
@@ -1003,7 +1023,7 @@ textarea.cf-in{resize:vertical;min-height:130px}
       <div class="tstats">
         <div class="ts3"><div class="tsn">99.9%</div><div class="tsl">Uptime</div></div>
         <div class="ts3"><div class="tsn" style="color:var(--blue)">2025</div><div class="tsl">Launched</div></div>
-        <div class="ts3"><div class="tsn">FastAPI</div><div class="tsl">Core stack</div></div>
+        <div class="ts3"><div class="tsn">OpenStack</div><div class="tsl">Core stack</div></div>
         <div class="ts3"><div class="tsn" style="color:var(--blue)">🇧🇩 BD</div><div class="tsl">Based in</div></div>
       </div>
     </div>
