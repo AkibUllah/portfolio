@@ -1395,6 +1395,7 @@ function heroIn(){
 /* WEBGL HERO */
 (function(){
   const cv=document.getElementById('hcanvas');
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches){cv.style.display='none';return}
   const gl=cv.getContext('webgl');
   if(!gl)return;
   // render at half resolution — the shader is soft noise, so it upscales invisibly and costs 4x less
@@ -1445,9 +1446,11 @@ void main(){
   if(heroEl)new IntersectionObserver(en=>{heroVisible=en[0].isIntersecting},{threshold:0}).observe(heroEl);
   const checkShown=()=>{canvasShown=getComputedStyle(cv).display!=='none'};
   checkShown();addEventListener('resize',checkShown,{passive:true});
+  let frame=0;
   (function draw(){
-    if(heroVisible && canvasShown && !document.hidden){
-      smx+=(tmx-smx)*.04;smy+=(tmy-smy)*.04;
+    // 30fps is plenty for slow-moving noise; halves GPU/CPU cost on weak machines
+    if(heroVisible && canvasShown && !document.hidden && (frame++ & 1)===0){
+      smx+=(tmx-smx)*.08;smy+=(tmy-smy)*.08;
       gl.uniform2f(uR,cv.width,cv.height);
       gl.uniform1f(uT,(Date.now()-st)/1000);
       gl.uniform2f(uM,smx*S,smy*S);
