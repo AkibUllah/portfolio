@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Akib Jafor — Software Engineer</title>
-<meta name="description" content="Md. Akib Ullah Jafor — Senior Software Engineer & Team Lead based in Dhaka, Bangladesh. Expert in Python, Django, FastAPI, Vue.js, payment systems and cloud infrastructure.">
+<title>Akib Jafor | Senior Python, Django & Cloud Engineer — Dhaka, Bangladesh</title>
+<meta name="description" content="Md. Akib Ullah Jafor — Senior Software Engineer in Dhaka, Bangladesh with 6+ years in FinTech, cloud and AgriTech. Payment gateway integration, Django & FastAPI backends, OpenStack cloud platforms and Vue.js dashboards. Open to jobs and client projects.">
 <meta name="keywords" content="Akib Jafor, Software Engineer, Python Developer, Django, FastAPI, Bangladesh, Dhaka, Team Lead, Meghna Cloud">
 <meta name="author" content="Md. Akib Ullah Jafor">
-<meta property="og:title" content="Akib Jafor — Senior Software Engineer">
-<meta property="og:description" content="Senior Software Engineer & Team Lead. Python · Django · FastAPI · Vue.js · Cloud. Based in Dhaka, Bangladesh.">
+<meta property="og:title" content="Akib Jafor — Senior Python, Django & Cloud Engineer">
+<meta property="og:description" content="Payment gateways, FastAPI/Django backends, OpenStack cloud platforms and Vue.js dashboards. 6+ years across FinTech, cloud and AgriTech. Dhaka, Bangladesh — open to jobs and client projects.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://akibullah.github.io/portfolio/">
 <meta property="og:image" content="https://akibullah.github.io/portfolio/og-image.jpg">
@@ -16,7 +16,7 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:image" content="https://akibullah.github.io/portfolio/og-image.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Akib Jafor — Software Engineer">
+<meta name="twitter:title" content="Akib Jafor — Senior Python, Django & Cloud Engineer">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://akibullah.github.io/portfolio/">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='12' fill='%234169E1'/><text y='.9em' font-size='60' font-family='Arial Black' font-weight='900' fill='white' x='10'>AJ</text></svg>">
@@ -472,6 +472,21 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
 .edu-card:hover .edu-tag{border-color:rgba(65,105,225,.3);color:rgba(100,149,237,.7)}
 @media(max-width:900px){.edu-grid{grid-template-columns:1fr}}
 
+/* ── SERVICES ── */
+#services{background:var(--bg)}
+.svc-intro{font-size:.92rem;color:var(--g);line-height:1.8;max-width:680px;margin:-1.5rem 0 3rem}
+.svc-intro strong{color:var(--w);font-weight:500}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.svc-card{background:var(--bg3);border:1px solid rgba(255,255,255,.05);border-radius:16px;padding:2.25rem;position:relative;overflow:hidden;transition:border-color .3s,transform .3s,opacity .7s}
+.svc-card:hover{border-color:rgba(65,105,225,.25);transform:translateY(-6px)}
+.svc-num{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.2em;color:#4f8fff;margin-bottom:1.25rem}
+.svc-title{font-family:'Bebas Neue',sans-serif;font-size:1.9rem;letter-spacing:.04em;line-height:1;color:var(--w);margin-bottom:.9rem}
+.svc-desc{font-size:.8rem;color:var(--g);line-height:1.65;margin-bottom:1.25rem}
+.svc-tags{display:flex;flex-wrap:wrap;gap:.35rem}
+.svc-cta{margin-top:2.5rem}
+@media(max-width:1000px){.svc-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.svc-grid{grid-template-columns:1fr;gap:1rem}.svc-card{padding:1.6rem}.svc-intro{margin-top:-.5rem}}
+
 /* ── KONAMI FLASH — force hidden ── */
 #konami-flash{display:none!important;position:fixed;inset:0;z-index:8500;pointer-events:none}
 #konami-flash.active{display:block!important}
@@ -680,7 +695,7 @@ textarea.cf-in{resize:vertical;min-height:130px}
       #030b1f !important
   }
   #hero,#about,#work,#projects,#skills,#spotlight,#education,#contact{background:transparent !important}
-  .wc,.bc,.edu-card,.ts3{background:rgba(6,15,35,.9) !important}
+  .wc,.bc,.edu-card,.ts3,.svc-card{background:rgba(6,15,35,.9) !important}
   .pcard{background:rgba(6,15,35,.9) !important}
   #cur,#cur2{display:none}
   /* Fix all hardcoded dark colors */
@@ -758,6 +773,8 @@ textarea.cf-in{resize:vertical;min-height:130px}
   <div class="sc-line"></div>
   <div class="sc-dot" data-sec="projects"></div>
   <div class="sc-line"></div>
+  <div class="sc-dot" data-sec="services"></div>
+  <div class="sc-line"></div>
   <div class="sc-dot" data-sec="skills"></div>
   <div class="sc-line"></div>
   <div class="sc-dot" data-sec="spotlight"></div>
@@ -770,6 +787,7 @@ textarea.cf-in{resize:vertical;min-height:130px}
   <a href="#about" class="dock-item"><div class="dock-icon">👤</div><div class="dock-tip">About</div></a>
   <a href="#work" class="dock-item"><div class="dock-icon">💼</div><div class="dock-tip">Work</div></a>
   <a href="#projects" class="dock-item"><div class="dock-icon">🚀</div><div class="dock-tip">Projects</div></a>
+  <a href="#services" class="dock-item"><div class="dock-icon">🛠️</div><div class="dock-tip">Services</div></a>
   <a href="#skills" class="dock-item"><div class="dock-icon">⚡</div><div class="dock-tip">Stack</div></a>
   <a href="#spotlight" class="dock-item"><div class="dock-icon">☁️</div><div class="dock-tip">Meghna</div></a>
   <a href="#education" class="dock-item"><div class="dock-icon">🎓</div><div class="dock-tip">Education</div></a>
@@ -799,6 +817,7 @@ textarea.cf-in{resize:vertical;min-height:130px}
     <a href="#about">About</a>
     <a href="#work">Work</a>
     <a href="#projects">Projects</a>
+    <a href="#services">Services</a>
     <a href="#skills">Stack</a>
     <a href="#spotlight">Meghna</a>
     <a href="#education">Education</a>
@@ -815,6 +834,7 @@ textarea.cf-in{resize:vertical;min-height:130px}
   <a href="#about" onclick="toggleMenu()">About</a>
   <a href="#work" onclick="toggleMenu()">Work</a>
   <a href="#projects" onclick="toggleMenu()">Projects</a>
+  <a href="#services" onclick="toggleMenu()">Services</a>
   <a href="#skills" onclick="toggleMenu()">Stack</a>
   <a href="#spotlight" onclick="toggleMenu()">Meghna</a>
   <a href="#education" onclick="toggleMenu()">Education</a>
@@ -869,7 +889,7 @@ textarea.cf-in{resize:vertical;min-height:130px}
     <div class="photo-col reveal">
       <div class="photo-frame">
         <!-- Replace src below with your actual photo path -->
-        <img id="my-photo" src="akib_photo.jpg" alt="Akib Jafor">
+        <img id="my-photo" src="akib_photo.jpg" alt="Md. Akib Ullah Jafor — Senior Software Engineer, Dhaka, Bangladesh" width="920" height="1200">
         <div class="photo-scan"></div>
       </div>
       <div class="photo-deco1">
@@ -1036,7 +1056,7 @@ textarea.cf-in{resize:vertical;min-height:130px}
     <!-- Featured big project -->
     <div class="pcard reveal">
       <div class="pcard-ph" style="position:absolute;inset:0;background:#060d1f;overflow:hidden;display:flex;align-items:center;justify-content:center;">
-        <img src="m.jpeg" alt="Meghna Cloud Platform" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;filter:invert(1) hue-rotate(180deg) brightness(1.2);mix-blend-mode:screen">
+        <img src="m.jpeg" alt="Meghna Cloud Platform" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;filter:invert(1) hue-rotate(180deg) brightness(1.2);mix-blend-mode:screen">
         <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(2,4,11,.92) 0%,rgba(2,4,11,.2) 55%,transparent 100%)"></div>
       </div>
       <div class="pcard-overlay">
@@ -1049,7 +1069,7 @@ textarea.cf-in{resize:vertical;min-height:130px}
 
     <div class="pcard reveal" style="transition-delay:.1s">
       <div class="pcard-ph" style="position:absolute;inset:0;overflow:hidden;background:#060d1f;display:flex;align-items:center;justify-content:center;">
-        <img src="ScenesfromaDemonstrationProject.jpg" alt="AWD Field Monitor" style="width:100%;height:100%;object-fit:cover;object-position:right center;display:block">
+        <img src="ScenesfromaDemonstrationProject.jpg" alt="AWD field monitoring platform — farmers and field officers using the agricultural data app" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:right center;display:block">
         <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(2,4,11,.92) 0%,rgba(2,4,11,.2) 55%,transparent 100%)"></div>
       </div>
       <div class="pcard-overlay">
@@ -1062,7 +1082,7 @@ textarea.cf-in{resize:vertical;min-height:130px}
 
     <div class="pcard reveal" style="transition-delay:.2s">
       <div class="pcard-ph" style="position:absolute;inset:0;background:#060d1f;overflow:hidden;display:flex;align-items:center;justify-content:center;">
-        <img src="payment-gateway-in-bangladesh.webp" alt="Payment Gateway" style="width:100%;height:100%;object-fit:contain;display:block;filter:invert(1) hue-rotate(180deg) contrast(2.5) brightness(1.3);mix-blend-mode:screen">
+        <img src="payment-gateway-in-bangladesh.webp" alt="Payment gateway integration in Bangladesh" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:contain;display:block;filter:invert(1) hue-rotate(180deg) contrast(2.5) brightness(1.3);mix-blend-mode:screen">
         <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(2,4,11,.92) 0%,rgba(2,4,11,.3) 55%,transparent 100%)"></div>
       </div>
       <div class="pcard-overlay">
@@ -1075,7 +1095,7 @@ textarea.cf-in{resize:vertical;min-height:130px}
 
     <div class="pcard reveal" style="transition-delay:.3s">
       <div class="pcard-ph" style="position:absolute;inset:0;background:#060d1f;overflow:hidden">
-        <img src="circle.jpg" alt="Circle FinTech" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;filter:brightness(0.7) saturate(0.8)">
+        <img src="circle.jpg" alt="Circle FinTech billing and settlement platform" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;filter:brightness(0.7) saturate(0.8)">
         <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(2,4,11,.95) 0%,rgba(2,4,11,.5) 50%,rgba(2,4,11,.2) 100%)"></div>
       </div>
       <div class="pcard-overlay">
@@ -1089,9 +1109,55 @@ textarea.cf-in{resize:vertical;min-height:130px}
   </div>
 </section>
 
+<!-- SERVICES -->
+<section id="services" class="sp">
+  <div class="eye reveal">// 03 — Services</div>
+  <h2 class="sh reveal cod-flicker" data-orig="HOW I CAN HELP">HOW I<br>CAN HELP</h2>
+  <p class="svc-intro reveal">I work with <strong>startups, fintech companies and enterprise teams</strong> — as a full-time engineer or on a project basis — to design, build and scale the backend systems behind their products. Based in Dhaka, Bangladesh, with experience delivering for clients in Bangladesh and Japan.</p>
+  <div class="svc-grid">
+    <div class="svc-card reveal">
+      <div class="svc-num">01</div>
+      <h3 class="svc-title">Payment Gateway &amp; FinTech Integration</h3>
+      <p class="svc-desc">Third-party payment gateways, MFS and bank partner APIs, billing &amp; settlement services and KYC onboarding — built and maintained for Bangladesh's financial ecosystem.</p>
+      <div class="svc-tags"><span class="wt">Payment APIs</span><span class="wt">Billing</span><span class="wt">Settlement</span><span class="wt">KYC</span></div>
+    </div>
+    <div class="svc-card reveal" style="transition-delay:.08s">
+      <div class="svc-num">02</div>
+      <h3 class="svc-title">Backend &amp; API Development</h3>
+      <p class="svc-desc">Production-grade REST and GraphQL APIs in Python with Django and FastAPI — clean architecture, documentation and integration testing included, so other teams can build on them.</p>
+      <div class="svc-tags"><span class="wt">Python</span><span class="wt">Django</span><span class="wt">FastAPI</span><span class="wt">GraphQL</span></div>
+    </div>
+    <div class="svc-card reveal" style="transition-delay:.16s">
+      <div class="svc-num">03</div>
+      <h3 class="svc-title">Cloud Infrastructure &amp; Platforms</h3>
+      <p class="svc-desc">Compute, storage and networking services on OpenStack, multi-tenant authentication, usage metering and billing, monitoring and alerting — the foundations of a cloud platform.</p>
+      <div class="svc-tags"><span class="wt">OpenStack</span><span class="wt">Docker</span><span class="wt">Multi-tenant</span><span class="wt">Monitoring</span></div>
+    </div>
+    <div class="svc-card reveal" style="transition-delay:.24s">
+      <div class="svc-num">04</div>
+      <h3 class="svc-title">Dashboards &amp; Data Platforms</h3>
+      <p class="svc-desc">Vue.js dashboards and real-time monitoring for operations teams, plus field data collection with records, images and GPS — designed to be simple for non-technical users.</p>
+      <div class="svc-tags"><span class="wt">Vue.js</span><span class="wt">Real-time</span><span class="wt">GPS Data</span><span class="wt">AgriTech</span></div>
+    </div>
+    <div class="svc-card reveal" style="transition-delay:.32s">
+      <div class="svc-num">05</div>
+      <h3 class="svc-title">Legacy System Modernisation</h3>
+      <p class="svc-desc">Stabilising and troubleshooting legacy services, reducing production issues, and migrating critical paths to modern FastAPI services without disrupting live traffic.</p>
+      <div class="svc-tags"><span class="wt">Stability</span><span class="wt">Migration</span><span class="wt">Reliability</span></div>
+    </div>
+    <div class="svc-card reveal" style="transition-delay:.4s">
+      <div class="svc-num">06</div>
+      <h3 class="svc-title">Technical Leadership &amp; Consulting</h3>
+      <p class="svc-desc">Leading engineering teams, code reviews and sprint planning, and turning requirements from consultants and stakeholders — including international clients — into shipped features.</p>
+      <div class="svc-tags"><span class="wt">Team Lead</span><span class="wt">Code Review</span><span class="wt">Planning</span></div>
+    </div>
+  </div>
+  <a href="#contact" class="slink svc-cta reveal">Start a project or hire me →</a>
+</section>
+
 <!-- SKILLS -->
 <section id="skills" class="sp" style="padding-top:4rem;background:var(--bg2)">
-  <div class="eye reveal">// 03 — Capabilities</div>
+  <div class="eye reveal">// 04 — Capabilities</div>
   <h2 class="sh reveal cod-flicker" data-orig="MY STACK">MY STACK</h2>
   <div class="bento">
     <div class="bc b1"><div class="bl">// primary language</div><div class="bb">Py<br>thon</div><div style="font-size:.77rem;color:var(--g);line-height:1.7;margin-top:1rem">From Django monoliths to FastAPI microservices — the engine behind every system I build.</div><div class="pw"><span class="pi l">Django</span><span class="pi l">FastAPI</span><span class="pi l">REST</span><span class="pi l">GraphQL</span></div></div>
@@ -1122,7 +1188,7 @@ textarea.cf-in{resize:vertical;min-height:130px}
     </div>
     <div class="reveal" style="transition-delay:.2s">
       <div style="border-radius:14px;overflow:hidden;border:1px solid rgba(65,105,225,.18);box-shadow:0 60px 120px rgba(0,0,0,.6)">
-        <img src="m.jpeg" alt="Meghna Cloud" style="width:100%;display:block;object-fit:cover">
+        <img src="m.jpeg" alt="Meghna Cloud — cloud infrastructure platform for Bangladesh" loading="lazy" decoding="async" style="width:100%;display:block;object-fit:cover">
       </div>
       <div class="tstats">
         <div class="ts3"><div class="tsn">99.9%</div><div class="tsl">Uptime</div></div>
@@ -1722,7 +1788,7 @@ window.addEventListener('scroll',()=>{
 },{passive:true});
 
 /* ── ACTIVE NAV + SECTION COUNTER ── */
-const sections=['hero','about','work','projects','skills','spotlight','education','contact'];
+const sections=['hero','about','work','projects','services','skills','spotlight','education','contact'];
 const navLinks=document.querySelectorAll('.nav-links a');
 const scDots=document.querySelectorAll('.sc-dot');
 const secCounter=document.getElementById('sec-counter');
