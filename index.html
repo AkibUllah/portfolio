@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Akib Jafor | Senior Python, Django & Cloud Engineer — Dhaka, Bangladesh</title>
-<meta name="description" content="Md. Akib Ullah Jafor — Senior Software Engineer in Dhaka, Bangladesh with 6+ years in FinTech, cloud and AgriTech. Payment gateway integration, Django & FastAPI backends, OpenStack cloud platforms and Vue.js dashboards. Open to jobs and client projects.">
+<meta name="description" content="Md. Akib Ullah Jafor — Senior Software Engineer in Dhaka, Bangladesh with 6+ years in FinTech, cloud and AgriTech. Builds complete products end-to-end: e-commerce with POS and bKash payments, clinic websites, payment gateways, FastAPI/Django backends, OpenStack cloud platforms. Open to jobs and client projects.">
 <meta name="keywords" content="Akib Jafor, Software Engineer, Python Developer, Django, FastAPI, Bangladesh, Dhaka, Team Lead, Meghna Cloud">
 <meta name="author" content="Md. Akib Ullah Jafor">
 <meta property="og:title" content="Akib Jafor — Senior Python, Django & Cloud Engineer">
@@ -233,6 +233,19 @@ section{position:relative;z-index:1}
 .pcard-title{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:.04em;color:var(--w);line-height:1;margin-bottom:.5rem}
 .pcard-desc{font-size:.75rem;color:rgba(255,255,255,.45);line-height:1.5;max-height:0;overflow:hidden;transition:max-height .4s,opacity .4s;opacity:0}
 .pcard:hover .pcard-desc{max-height:60px;opacity:1}
+/* own products: description always visible, taller card, link cursor */
+.proj-intro{font-size:.92rem;color:var(--g);line-height:1.8;max-width:680px;margin:-1.5rem 0 2.5rem}
+.pcard-own{aspect-ratio:auto;text-decoration:none;color:inherit;display:flex;flex-direction:column}
+.pcard-own .pcard-ph{position:relative !important;inset:auto !important;aspect-ratio:16/9;flex-shrink:0;border-bottom:1px solid rgba(255,255,255,.06)}
+.pcard-own .pcard-ph img{transition:transform .6s}
+.pcard-own:hover .pcard-ph img{transform:scale(1.04)}
+.pcard-own .pcard-ph>div{background:linear-gradient(to top,rgba(9,14,28,.9) 0%,transparent 40%) !important}
+.pcard-own .pcard-overlay{position:relative;background:none;padding:1.5rem 1.75rem 1.75rem}
+.pcard-own .pcard-desc{max-height:none;opacity:1;color:var(--g);font-size:.78rem;line-height:1.65}
+.pcard-own .pcard-desc strong{color:var(--w);font-weight:600}
+.pcard-own .pcard-title{font-size:2rem}
+.pcard-own .pcard-tag{color:#6f9fff}
+.pcard-own:hover .pcard-img{transform:none}
 .pcard-stack{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.75rem}
 .ptag{font-size:.58rem;font-family:'JetBrains Mono',monospace;padding:.15rem .55rem;border:1px solid rgba(255,255,255,.1);border-radius:20px;color:rgba(255,255,255,.4)}
 /* placeholder project cards when no image */
@@ -740,6 +753,11 @@ textarea.cf-in{resize:vertical;min-height:130px}
   .alink{justify-content:center}
   .proj-grid{grid-template-columns:1fr;gap:1rem}
   .pcard{aspect-ratio:4/3}
+  .pcard-own{aspect-ratio:auto}
+  .pcard-own .pcard-overlay{padding:1.1rem 1.15rem 1.25rem}
+  .pcard-own .pcard-title{font-size:1.35rem}
+  .pcard-own .pcard-desc{font-size:.72rem}
+  .proj-intro{margin-top:-.5rem}
   .work-track{padding:0 4vw 1.5rem}
   .wc{width:300px;padding:1.75rem}
   .bento{grid-template-columns:1fr}
@@ -766,7 +784,7 @@ textarea.cf-in{resize:vertical;min-height:130px}
 }
 </style>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Person","name":"Md. Akib Ullah Jafor","alternateName":"Akib Jafor","jobTitle":"Senior Software Engineer","description":"Senior Software Engineer based in Dhaka, Bangladesh, building payment systems, cloud infrastructure and agri-tech platforms with Python, Django, FastAPI and Vue.js.","email":"jaforakib@gmail.com","telephone":"+8801673167567","url":"https://akibullah.github.io/portfolio/","image":"https://akibullah.github.io/portfolio/akib_photo.jpg","sameAs":["https://www.linkedin.com/in/akib-jafor","https://github.com/AkibUllah"],"worksFor":{"@type":"Organization","name":"GenNext Technologies"},"alumniOf":{"@type":"CollegeOrUniversity","name":"North South University"},"address":{"@type":"PostalAddress","addressLocality":"Dhaka","addressCountry":"BD"},"knowsAbout":["Python","Django","FastAPI","Vue.js","GraphQL","REST API","Payment Gateways","OpenStack","Cloud Infrastructure","Team Leadership"],"makesOffer":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Payment Gateway & FinTech Integration","areaServed":"Bangladesh"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Backend & API Development (Python, Django, FastAPI)"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Cloud Infrastructure & Platforms (OpenStack)"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Dashboards & Data Platforms (Vue.js)"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Legacy System Modernisation"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Technical Leadership & Consulting"}}]}
+{"@context":"https://schema.org","@type":"Person","name":"Md. Akib Ullah Jafor","alternateName":"Akib Jafor","jobTitle":"Senior Software Engineer","description":"Senior Software Engineer based in Dhaka, Bangladesh, building payment systems, cloud infrastructure and agri-tech platforms with Python, Django, FastAPI and Vue.js.","email":"jaforakib@gmail.com","telephone":"+8801673167567","url":"https://akibullah.github.io/portfolio/","image":"https://akibullah.github.io/portfolio/akib_photo.jpg","sameAs":["https://www.linkedin.com/in/akib-jafor","https://github.com/AkibUllah"],"worksFor":{"@type":"Organization","name":"GenNext Technologies"},"alumniOf":{"@type":"CollegeOrUniversity","name":"North South University"},"address":{"@type":"PostalAddress","addressLocality":"Dhaka","addressCountry":"BD"},"knowsAbout":["Python","Django","FastAPI","Next.js","React","Vue.js","GraphQL","REST API","Payment Gateways","bKash Integration","E-commerce","Point of Sale","OpenStack","Cloud Infrastructure","Team Leadership"],"owns":[{"@type":"WebSite","name":"ARISE Outfits","url":"https://ariseoutfits.com/"},{"@type":"WebSite","name":"Orthoplastix","url":"https://www.orthoplastix.com/"}],"makesOffer":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Payment Gateway & FinTech Integration","areaServed":"Bangladesh"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Backend & API Development (Python, Django, FastAPI)"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Cloud Infrastructure & Platforms (OpenStack)"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Dashboards & Data Platforms (Vue.js)"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Legacy System Modernisation"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Technical Leadership & Consulting"}}]}
 </script>
 </head>
 <body>
@@ -1062,7 +1080,35 @@ textarea.cf-in{resize:vertical;min-height:130px}
 <section id="projects" class="sp">
   <div class="eye reveal">// 02 — Projects</div>
   <h2 class="sh reveal cod-flicker" data-orig="WHAT I'VE BUILT">WHAT<br>I'VE BUILT</h2>
+  <p class="proj-intro reveal">Two products I own end-to-end — design, backend, frontend, deployment and ongoing operation — both live and serving real customers today. Below them, platform work from my full-time roles.</p>
   <div class="proj-grid">
+
+    <!-- Own products — live -->
+    <a href="https://ariseoutfits.com/" target="_blank" rel="noopener" class="pcard pcard-own reveal">
+      <div class="pcard-ph" style="position:absolute;inset:0;background:#060d1f;overflow:hidden">
+        <img src="arise-outfits.jpg" alt="ARISE Outfits — e-commerce storefront homepage" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block">
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(2,4,11,.95) 0%,rgba(2,4,11,.35) 55%,transparent 100%)"></div>
+      </div>
+      <div class="pcard-overlay">
+        <div class="pcard-tag">// Own product · Live · ariseoutfits.com ↗</div>
+        <div class="pcard-title">ARISE — E-commerce &amp; Retail Platform</div>
+        <div class="pcard-desc">Complete commerce system for a Dhaka clothing brand: storefront with cart, checkout and order tracking; an in-store <strong>POS counter</strong>; and an admin HQ where every visible thing — pages, sections, popups, theme — is edited as data with no deploy. bKash, COD and bank payments; Pathao courier with live rates and COD fraud scoring; inventory, staff, finance, coupons and SMS/email/WhatsApp marketing; Meta Pixel + server-side Conversions API.</div>
+        <div class="pcard-stack"><span class="ptag">FastAPI</span><span class="ptag">Next.js</span><span class="ptag">PostgreSQL</span><span class="ptag">Redis</span><span class="ptag">Docker</span><span class="ptag">bKash</span><span class="ptag">POS</span></div>
+      </div>
+    </a>
+
+    <a href="https://www.orthoplastix.com/" target="_blank" rel="noopener" class="pcard pcard-own reveal" style="transition-delay:.1s">
+      <div class="pcard-ph" style="position:absolute;inset:0;background:#060d1f;overflow:hidden">
+        <img src="orthoplastix.jpg" alt="Orthoplastix — orthopaedic surgery practice website homepage" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block">
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(2,4,11,.95) 0%,rgba(2,4,11,.35) 55%,transparent 100%)"></div>
+      </div>
+      <div class="pcard-overlay">
+        <div class="pcard-tag">// Own product · Live · orthoplastix.com ↗</div>
+        <div class="pcard-title">Orthoplastix — Surgical Practice Platform</div>
+        <div class="pcard-desc">Bilingual (English/বাংলা) website and CMS for an orthopaedic &amp; reconstructive surgeon. Two front doors — patients search symptoms in plain words, referring physicians search by technique — joined by a shared content model with per-procedure recovery timelines. Consultation booking with slot picker and email notifications, admin panel, journal, and a canvas-drawn anatomy hero that peels skin → muscle → vessels → bone on scroll.</div>
+        <div class="pcard-stack"><span class="ptag">FastAPI</span><span class="ptag">React</span><span class="ptag">TypeScript</span><span class="ptag">PostgreSQL</span><span class="ptag">i18n</span><span class="ptag">Docker</span></div>
+      </div>
+    </a>
 
     <!-- Featured big project -->
     <div class="pcard reveal">
