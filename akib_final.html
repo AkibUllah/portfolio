@@ -10,6 +10,10 @@
 <meta property="og:title" content="Akib Jafor — Senior Software Engineer">
 <meta property="og:description" content="Senior Software Engineer & Team Lead. Python · Django · FastAPI · Vue.js · Cloud. Based in Dhaka, Bangladesh.">
 <meta property="og:type" content="website">
+<meta property="og:image" content="og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:image" content="og-image.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Akib Jafor — Software Engineer">
 <meta name="robots" content="index, follow">
@@ -24,14 +28,15 @@
 :root{
   --bg:#03060f;--bg2:#050918;--bg3:#090e1c;
   --lime:#4f8fff;--blue:#1a3a8a;--purple:#8b5cf6;
-  --w:#eef2ff;--g:#384060;--g2:#1c2238;
+  --w:#eef2ff;--g:#8a9bbf;--g2:#1c2238;
 }
 html{scroll-behavior:smooth;scroll-padding-top:0}
 body{background:linear-gradient(160deg,#03060f 0%,#060e20 50%,#03060f 100%);color:var(--w);font-family:'Space Grotesk',sans-serif;overflow-x:hidden;cursor:none}
 
 /* CURSOR */
-#cur{position:fixed;width:10px;height:10px;border-radius:50%;background:#4f8fff;pointer-events:none;z-index:9999;mix-blend-mode:exclusion;transform:translate(-50%,-50%);transition:width .25s,height .25s,border-radius .25s}
-#cur2{position:fixed;width:44px;height:44px;border-radius:50%;border:1px solid rgba(65,105,225,.22);pointer-events:none;z-index:9998;transform:translate(-50%,-50%)}
+#cur{position:fixed;width:10px;height:10px;border-radius:50%;background:#4f8fff;pointer-events:none;z-index:9999;mix-blend-mode:exclusion;transform:translate(-50%,-50%);opacity:0;transition:width .25s,height .25s,border-radius .25s,opacity .25s}
+#cur2{position:fixed;width:44px;height:44px;border-radius:50%;border:1px solid rgba(65,105,225,.22);pointer-events:none;z-index:9998;transform:translate(-50%,-50%);opacity:0;transition:opacity .25s}
+#cur.active,#cur2.active{opacity:1}
 .hovering #cur{width:44px;height:44px;border-radius:6px}
 
 /* LOADER */
@@ -73,19 +78,23 @@ nav.scrolled{background:rgba(2,4,11,.92);backdrop-filter:blur(24px);border-botto
 .bn-inner.go{transform:translateY(0) !important;opacity:1 !important}
 .bn-lime{color:#4f8fff;text-shadow:0 0 80px rgba(65,105,225,.3)}
 .hero-right{display:flex;flex-direction:column;align-items:flex-end;gap:1.5rem;padding-bottom:.5rem;max-width:300px}
-.hchip{display:flex;align-items:center;gap:.5rem;background:rgba(65,105,225,.09);border:1px solid rgba(65,105,225,.2);padding:.5rem 1rem;border-radius:4px;font-family:'JetBrains Mono',monospace;font-size:.63rem;letter-spacing:.1em;color:#4f8fff;opacity:0;transition:opacity .6s .9s}
+.hchip{display:flex;align-items:center;gap:.5rem;background:rgba(65,105,225,.09);border:1px solid rgba(65,105,225,.2);padding:.5rem 1rem;border-radius:4px;font-family:'JetBrains Mono',monospace;font-size:.63rem;letter-spacing:.1em;color:#4f8fff;opacity:0;transition:opacity .6s .9s;white-space:nowrap}
 .hchip.go{opacity:1}
 .hdesc{font-size:.83rem;color:var(--g);line-height:1.7;text-align:right;opacity:0;transition:opacity .6s 1.05s}
 .hdesc.go{opacity:1}
 .hdesc strong{color:var(--w);font-weight:500}
-.hbtns{display:flex;gap:.85rem;opacity:0;transition:opacity .6s 1.2s}
+.hbtns{display:flex;align-items:center;gap:.85rem;opacity:0;transition:opacity .6s 1.2s}
 .hbtns.go{opacity:1}
 /* FIXED: no overlap — side by side, no absolute positioning */
 .btnl{background:#4f8fff;color:#000;padding:.85rem 1.75rem;border:none;border-radius:3px;font-size:.73rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;cursor:none;transition:all .25s;font-family:'Space Grotesk',sans-serif;text-decoration:none;display:inline-block;white-space:nowrap}
 .btnl:hover{background:#ccff00;transform:translateY(-3px);box-shadow:0 20px 50px rgba(65,105,225,.35)}
 .btno{background:transparent;color:var(--w);padding:.85rem 1.75rem;border:1px solid rgba(255,255,255,.12);border-radius:3px;font-size:.73rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;cursor:none;transition:all .25s;font-family:'Space Grotesk',sans-serif;text-decoration:none;display:inline-block;white-space:nowrap}
 .btno:hover{border-color:rgba(255,255,255,.4);transform:translateY(-3px)}
-.hero-stats{display:flex;gap:2.5rem;opacity:0;transition:opacity .6s 1.4s;margin-top:2.5rem}
+.btn-cv{display:inline-flex !important;align-items:center;gap:.6rem}
+.cv-dot{position:relative;display:inline-block;width:16px;height:16px;flex-shrink:0;vertical-align:middle;border-radius:50%;background:rgba(65,105,225,.15)}
+.cv-dot::before{content:'';position:absolute;inset:-2px;border-radius:50%;padding:2px;background:conic-gradient(from 0deg,transparent 0deg,transparent 250deg,#fff 290deg,rgba(255,255,255,.95) 300deg,transparent 330deg,transparent 360deg);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:cvSpin 3.2s linear infinite;pointer-events:none}
+@keyframes cvSpin{to{transform:rotate(360deg)}}
+.hero-stats{display:flex;gap:2.5rem;opacity:0;transition:opacity .6s 1.4s;margin-top:1.75rem}
 .hero-stats.go{opacity:1}
 .hsn{font-family:'Bebas Neue',sans-serif;font-size:3.5rem;color:#4f8fff;line-height:1;text-shadow:0 0 25px rgba(65,105,225,.35)}
 .hsl{font-size:.6rem;color:var(--g);letter-spacing:.1em;text-transform:uppercase;margin-top:.2rem}
@@ -228,7 +237,7 @@ section{position:relative;z-index:1}
 .bc{background:var(--bg3);border:1px solid rgba(255,255,255,.05);border-radius:14px;padding:2rem;transition:border-color .3s,transform .6s;position:relative;overflow:hidden;opacity:0;transform:translateY(24px)}
 .bc.vis{opacity:1;transform:translateY(0)}
 .bc:hover{border-color:rgba(65,105,225,.18)}
-.b1{grid-column:span 4;grid-row:span 2}.b2{grid-column:span 3}.b3{grid-column:span 2}.b4{grid-column:span 3}.b5{grid-column:span 5}.b6{grid-column:span 4}.b7{grid-column:span 3}
+.b1{grid-column:span 4;grid-row:span 2}.b2{grid-column:span 3}.b3{grid-column:span 2}.b4{grid-column:span 3}.b5{grid-column:span 5}.b6{grid-column:span 3}.b7{grid-column:span 12}
 .bl{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--g);margin-bottom:1.5rem;font-family:'JetBrains Mono',monospace}
 .bb{font-family:'Bebas Neue',sans-serif;font-size:5rem;line-height:.85;color:#4f8fff;text-shadow:0 0 40px rgba(65,105,225,.25)}
 .bt{font-size:1rem;font-weight:700;color:var(--w);margin-bottom:.4rem}
@@ -360,7 +369,7 @@ footer{padding:2rem 5vw;border-top:1px solid rgba(255,255,255,.04);display:flex;
 .typed-wrap{display:flex;align-items:center;gap:.5rem;margin-bottom:1.5rem;opacity:0;transition:opacity .6s 1.2s}
 .typed-wrap.go{opacity:1}
 .typed-label{font-size:.72rem;color:var(--g);font-family:'JetBrains Mono',monospace;letter-spacing:.1em}
-.typed-text{font-size:.72rem;color:var(--lime);font-family:'JetBrains Mono',monospace;letter-spacing:.05em;font-weight:500;min-width:180px}
+.typed-text{font-size:.72rem;color:var(--lime);font-family:'JetBrains Mono',monospace;letter-spacing:.05em;font-weight:500}
 .typed-cursor{display:inline-block;width:2px;height:.9em;background:var(--lime);margin-left:2px;vertical-align:middle;animation:tc 1s step-end infinite}
 @keyframes tc{0%,100%{opacity:1}50%{opacity:0}}
 
@@ -439,7 +448,7 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
   letter-spacing:.12em;padding:.3rem .9rem;border-radius:20px;
   background:rgba(65,105,225,.1);border:1px solid rgba(65,105,225,.25);color:#6c8fff;
 }
-.edu-period{font-family:'JetBrains Mono',monospace;font-size:.6rem;color:#384060;letter-spacing:.08em}
+.edu-period{font-family:'JetBrains Mono',monospace;font-size:.6rem;color:#7a8fb5;letter-spacing:.08em}
 .edu-degree{
   font-family:'Bebas Neue',sans-serif;font-size:2rem;
   letter-spacing:.04em;color:#eef2ff;line-height:1.1;margin-bottom:1.5rem;
@@ -450,18 +459,18 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
   background:#4169E1;box-shadow:0 0 10px rgba(65,105,225,.6);
 }
 .edu-school{font-size:.82rem;color:#eef2ff;font-weight:500;margin-bottom:.25rem;line-height:1.3}
-.edu-location{font-size:.65rem;color:#384060;font-family:'JetBrains Mono',monospace;letter-spacing:.06em}
+.edu-location{font-size:.65rem;color:#7a8fb5;font-family:'JetBrains Mono',monospace;letter-spacing:.06em}
 .edu-tags{display:flex;flex-wrap:wrap;gap:.4rem}
 .edu-tag{
   font-size:.6rem;font-family:'JetBrains Mono',monospace;
   padding:.2rem .65rem;border-radius:20px;
-  border:1px solid rgba(65,105,225,.15);color:#384060;transition:all .3s;
+  border:1px solid rgba(65,105,225,.15);color:#7a8fb5;transition:all .3s;
 }
 .edu-card:hover .edu-tag{border-color:rgba(65,105,225,.3);color:rgba(100,149,237,.7)}
 @media(max-width:900px){.edu-grid{grid-template-columns:1fr}}
 
 /* ── KONAMI FLASH — force hidden ── */
-#konami-flash{display:none!important}
+#konami-flash{display:none!important;position:fixed;inset:0;z-index:8500;pointer-events:none}
 #konami-flash.active{display:block!important}
 .kf-text{
   position:absolute;top:50%;left:50%;
@@ -471,12 +480,85 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
   opacity:0;pointer-events:none;
   text-shadow:0 0 60px rgba(65,105,225,.9);
 }
+@keyframes kpop{
+  0%{transform:translate(-50%,-50%) scale(.7);opacity:0}
+  60%{transform:translate(-50%,-50%) scale(1.08);opacity:1}
+  100%{transform:translate(-50%,-50%) scale(1);opacity:1}
+}
+
+/* ── FULL SITE GLITCH OVERLAY ── */
+#glitch-overlay{display:none;position:fixed;inset:0;z-index:8000;pointer-events:none;mix-blend-mode:screen}
+.gl-r,.gl-b{position:absolute;inset:0;mix-blend-mode:screen}
+.gl-r{background:rgba(255,60,60,.04);transform:translateX(-2px)}
+.gl-b{background:rgba(65,105,225,.07);transform:translateX(2px)}
+.gl-slice{position:absolute;left:0;right:0}
+#glitch-sweep{display:none;position:fixed;left:0;right:0;height:3px;z-index:8001;background:#4f8fff;box-shadow:0 0 20px rgba(65,105,225,.8);pointer-events:none}
+@keyframes body-glitch{
+  0%{filter:none}
+  25%{filter:hue-rotate(8deg)}
+  50%{filter:hue-rotate(-8deg) brightness(1.05)}
+  75%{filter:hue-rotate(4deg)}
+  100%{filter:none}
+}
+
+/* ── FLOATING WIDGETS: back-to-top, dock, clock, section counter ── */
+#btt{
+  position:fixed;bottom:2rem;right:2rem;z-index:590;
+  width:44px;height:44px;border-radius:50%;
+  background:rgba(65,105,225,.12);border:1px solid rgba(65,105,225,.3);
+  color:#4f8fff;font-size:1.1rem;font-family:inherit;cursor:none;
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;visibility:hidden;transform:translateY(12px);
+  transition:opacity .3s,transform .3s,visibility .3s,background .25s,border-color .25s;
+}
+#btt.show{opacity:1;visibility:visible;transform:translateY(0)}
+#btt:hover{background:rgba(65,105,225,.22);border-color:rgba(65,105,225,.5)}
+
+#dhaka-clock{
+  margin-top:1.1rem;text-align:left;
+  opacity:0;transform:translateY(10px);
+  transition:opacity .6s,transform .6s;
+}
+#dhaka-clock.show{opacity:1;transform:translateY(0)}
+.clock-time{font-family:'JetBrains Mono',monospace;font-size:.85rem;color:#4f8fff;letter-spacing:.1em}
+.clock-label{font-family:'JetBrains Mono',monospace;font-size:.55rem;color:var(--g);letter-spacing:.12em;text-transform:uppercase;margin-top:.15rem}
+
+#sec-counter{
+  position:fixed;top:50%;right:1.75rem;z-index:590;
+  transform:translateY(-50%);display:flex;flex-direction:column;align-items:center;gap:.4rem;
+  opacity:0;visibility:hidden;transition:opacity .5s,visibility .5s;
+}
+#sec-counter.show{opacity:1;visibility:visible}
+.sc-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.15);transition:background .3s,transform .3s;flex-shrink:0}
+.sc-dot.active{background:#4f8fff;transform:scale(1.4);box-shadow:0 0 8px rgba(65,105,225,.6)}
+.sc-line{width:1px;height:14px;background:rgba(255,255,255,.08)}
+
+#dock{
+  position:fixed;bottom:2rem;left:50%;z-index:590;
+  display:flex;align-items:center;gap:.35rem;
+  background:rgba(6,10,24,.85);backdrop-filter:blur(20px);
+  border:1px solid rgba(65,105,225,.18);border-radius:20px;padding:.6rem .75rem;
+  opacity:0;visibility:hidden;transform:translateX(-50%) translateY(20px);
+  transition:opacity .4s,visibility .4s,transform .4s;
+}
+#dock.show{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+.dock-item{position:relative;display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:12px;text-decoration:none;transition:transform .25s,background .25s;cursor:none}
+.dock-item:hover{background:rgba(65,105,225,.15)}
+.dock-icon{font-size:1.1rem;line-height:1}
+.dock-tip{
+  position:absolute;bottom:calc(100% + 10px);left:50%;transform:translateX(-50%);
+  background:#0b1120;border:1px solid rgba(65,105,225,.2);padding:.3rem .65rem;border-radius:6px;
+  font-size:.62rem;font-family:'JetBrains Mono',monospace;color:var(--w);white-space:nowrap;
+  opacity:0;pointer-events:none;transition:opacity .2s;
+}
+.dock-item:hover .dock-tip{opacity:1}
+.dock-sep{width:1px;height:24px;background:rgba(255,255,255,.1);margin:0 .25rem}
 
 /* ── CONTACT FORM FULL FIX ── */
 .cform{display:flex;flex-direction:column;gap:1rem;margin-top:2rem;max-width:640px;width:100%}
 .cform-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
 .cf-group{display:flex;flex-direction:column;gap:.5rem}
-.cf-lbl{font-size:.58rem;font-family:'JetBrains Mono',monospace;letter-spacing:.18em;text-transform:uppercase;color:#384060}
+.cf-lbl{font-size:.58rem;font-family:'JetBrains Mono',monospace;letter-spacing:.18em;text-transform:uppercase;color:#7a8fb5}
 .cf-in{
   background:rgba(65,105,225,.04);border:1px solid rgba(65,105,225,.15);
   border-radius:8px;padding:.9rem 1.1rem;
@@ -489,7 +571,7 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
   box-shadow:0 0 0 3px rgba(65,105,225,.1);
   background:rgba(65,105,225,.07);
 }
-.cf-in::placeholder{color:#384060}
+.cf-in::placeholder{color:#5a6f95}
 textarea.cf-in{resize:vertical;min-height:130px}
 .cf-send{
   display:inline-flex;align-items:center;gap:.75rem;
@@ -499,6 +581,7 @@ textarea.cf-in{resize:vertical;min-height:130px}
   cursor:none;transition:all .3s;align-self:flex-start;
 }
 .cf-send:hover{background:#5a7ff5;transform:translateY(-3px);box-shadow:0 20px 50px rgba(65,105,225,.3)}
+.cf-send.sending{opacity:.6;pointer-events:none}
 .cf-status{font-family:'JetBrains Mono',monospace;font-size:.68rem;color:#4169E1;letter-spacing:.08em;min-height:1rem}
 @media(max-width:700px){.cform-row{grid-template-columns:1fr}}
 
@@ -564,12 +647,12 @@ textarea.cf-in{resize:vertical;min-height:130px}
 
 
 
-#hero{position:relative;overflow:hidden;background:transparent}
-.hero-inner{position:relative;z-index:2;width:100%;padding:40px 5vw 100px;display:grid;grid-template-columns:1fr auto;align-items:start;margin-top:0;gap:4rem}
+#hero{position:relative;overflow:hidden;background:transparent;min-height:calc(100vh - 50px);display:flex;flex-direction:column;justify-content:center}
+.hero-inner{position:relative;z-index:2;width:100%;padding:120px 5vw 40px;display:grid;grid-template-columns:1fr auto;align-items:center;margin-top:0;gap:4rem}
 
 /* ── TABLET (max 1024px) ── */
 @media(max-width:1024px){
-  .hero-inner{grid-template-columns:1fr;gap:2.5rem;padding:70px 5vw 50px}
+  .hero-inner{grid-template-columns:1fr;gap:1.75rem;padding:115px 5vw 20px}
   .hero-right{align-items:flex-start;max-width:100%}
   .hdesc{text-align:left}
   .hbtns{flex-wrap:wrap}
@@ -662,9 +745,8 @@ textarea.cf-in{resize:vertical;min-height:130px}
 
 <div id="prog"></div>
 <div id="cur-halo"></div>
-<div id="dhaka-clock" style="opacity:0"><div class="clock-time" id="clk">00:00:00</div><div class="clock-label">Dhaka, BD · GMT+6</div></div>
-<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
-<div id="sec-counter" style="opacity:0">
+<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
+<div id="sec-counter">
   <div class="sc-dot active" data-sec="hero"></div>
   <div class="sc-line"></div>
   <div class="sc-dot" data-sec="about"></div>
@@ -681,7 +763,7 @@ textarea.cf-in{resize:vertical;min-height:130px}
   <div class="sc-line"></div>
   <div class="sc-dot" data-sec="contact"></div>
 </div>
-<div id="dock" style="opacity:0;transform:translateX(-50%) translateY(120px)">
+<div id="dock">
   <a href="#about" class="dock-item"><div class="dock-icon">👤</div><div class="dock-tip">About</div></a>
   <a href="#work" class="dock-item"><div class="dock-icon">💼</div><div class="dock-tip">Work</div></a>
   <a href="#projects" class="dock-item"><div class="dock-icon">🚀</div><div class="dock-tip">Projects</div></a>
@@ -747,27 +829,26 @@ textarea.cf-in{resize:vertical;min-height:130px}
         <div class="bn-line"><span class="bn-inner bn-lime glitch-text" id="n2" data-text="JAFOR">JAFOR</span></div>
       </div>
       <div class="hero-stats" id="hst">
-        <div><div class="hsn" data-count="5">0</div><div class="hsl">Years exp</div></div>
+        <div><div class="hsn" data-count="6">0</div><div class="hsl">Years exp</div></div>
         <div><div class="hsn" data-count="4">0</div><div class="hsl">Companies</div></div>
         <div><div class="hsn" data-count="3">0</div><div class="hsl">Languages</div></div>
       </div>
+      <div id="dhaka-clock"><div class="clock-time" id="clk">00:00:00</div><div class="clock-label">Dhaka, BD · GMT+6</div></div>
     </div>
     <div class="hero-right">
       <div class="typed-wrap" id="tw">
         <span class="typed-label">currently →</span>
         <span class="typed-text" id="typed-el"></span><span class="typed-cursor"></span>
       </div>
-      <div class="hchip" id="hc"><span>●</span>ZK IT · Meghna Cloud · Dhaka BD</div>
+      <div class="hchip" id="hc"><span>●</span>GenNext Technologies · Meghna Cloud · Dhaka BD</div>
       <p class="hdesc" id="hd"><strong>Senior Software Engineer & Team Lead</strong> — building payment systems, cloud infrastructure & agri-tech platforms that scale.</p>
       <div class="hbtns" id="hb">
         <a href="#work" class="btnl">View Work</a>
         <a href="#contact" class="btno">Let's Talk</a>
-        <a href="Akib_Jafor_CV.pdf" target="_blank" class="btno" style="border-color:rgba(65,105,225,.3)">↓ CV</a>
+        <a href="Akib_Jafor_CV.pdf" target="_blank" class="btno btn-cv" style="border-color:rgba(65,105,225,.3)" aria-label="Download CV"><span class="cv-dot"></span>CV</a>
       </div>
     </div>
   </div>
-
-  <div class="scroll-cue" id="sc"><div class="scline"></div>Scroll</div>
 </section>
 
 <!-- MARQUEE -->
@@ -789,7 +870,7 @@ textarea.cf-in{resize:vertical;min-height:130px}
         <div class="photo-scan"></div>
       </div>
       <div class="photo-deco1">
-        <div class="dn">5+</div>
+        <div class="dn">6+</div>
         <div class="dl">Years<br>Exp.</div>
       </div>
       <div class="photo-deco2">
@@ -800,7 +881,7 @@ textarea.cf-in{resize:vertical;min-height:130px}
     <div class="about-col reveal" style="transition-delay:.15s">
       <div class="about-name-big">MD. AKIB<br>ULLAH <span class="l">JAFOR</span></div>
       <p class="about-p">
-        I'm a <strong>Senior Software Engineer and Team Lead</strong> based in Dhaka, Bangladesh with 5+ years of experience shipping production systems across <strong>FinTech, AgriTech, and Cloud infrastructure</strong>. Currently leading engineering at ZK IT Solution and building <strong>Meghna Cloud</strong> — a cloud platform for Bangladesh's tech ecosystem.
+        I'm a <strong>Senior Software Engineer and Team Lead</strong> based in Dhaka, Bangladesh with 6+ years of experience shipping production systems across <strong>FinTech, AgriTech, and Cloud infrastructure</strong>. Currently building <strong>Meghna Cloud</strong> at GenNext Technologies — a cloud infrastructure platform for Bangladesh's tech ecosystem.
       </p>
       <p class="about-p" style="margin-bottom:2rem">
         I care deeply about <strong>clean architecture, scalable systems,</strong> and teams that ship fast without breaking things. I've worked with Japanese consultants, fintech companies, and built platforms used by farmers and enterprises alike.
@@ -864,55 +945,78 @@ textarea.cf-in{resize:vertical;min-height:130px}
 
       <div class="wc">
         <div class="wc-num">01</div>
-        <div class="wc-period">07 · 2025 — Present</div>
-        <div class="wc-co">ZK IT Solution<span class="now-b">Now</span></div>
-        <div class="wc-role">Sr. Software Engineer · Team Lead</div>
+        <div class="wc-period">01 · 2026 — Present</div>
+        <div class="wc-co">Meghna Cloud<span class="now-b">Now</span></div>
+        <div class="wc-role">Sr. Software Engineer · GenNext Technologies</div>
         <ul class="wc-dots">
-          <li>Led team building AWD field monitoring — water levels, GPS, farmer activity.</li>
-          <li>Full-stack modules for agri data collection serving Japanese client teams.</li>
-          <li>Real-time dashboards for field and water-level analysis.</li>
-          <li>All code reviews, sprint planning, and architectural decisions.</li>
-          <li>Also architecting <strong style="color:#4f8fff">Meghna Cloud</strong> under ZK IT.</li>
+          <li>Architect and build core platform services for compute, storage and networking on an OpenStack-based stack, exposed through FastAPI services.</li>
+          <li>Design the billing, usage metering and multi-tenant authentication layer for customer accounts.</li>
+          <li>Build real-time monitoring dashboards and alerting for platform health and customer resources.</li>
+          <li>Own API design, security architecture and reliability practices for an enterprise-grade environment.</li>
+          <li>Work with infrastructure, product and support teams to launch and scale the platform.</li>
         </ul>
-        <div class="wc-tags"><span class="wt">Python</span><span class="wt">Django</span><span class="wt">Vue.js</span><span class="wt">Team Lead</span><span class="wt">Meghna Cloud</span></div>
+        <div class="wc-tags"><span class="wt">Python</span><span class="wt">FastAPI</span><span class="wt">Vue.js</span><span class="wt">OpenStack</span><span class="wt">Cloud Infrastructure</span><span class="wt">Docker</span></div>
       </div>
 
       <div class="wc">
         <div class="wc-num">02</div>
-        <div class="wc-period">11 · 2023 — 07 · 2025</div>
-        <div class="wc-co">Fingerprint IT</div>
-        <div class="wc-role">Software Engineer</div>
+        <div class="wc-period">07 · 2025 — 12 · 2025</div>
+        <div class="wc-co">ZK IT Solution</div>
+        <div class="wc-role">Sr. Software Engineer · Team Lead</div>
         <ul class="wc-dots">
-          <li>Built scalable FastAPI payment gateway for multiple enterprise clients.</li>
-          <li>Integrated third-party payment providers and legacy APIs.</li>
-          <li>Maintained and improved core Payment Service infrastructure.</li>
+          <li>Led a software engineering team building AWD (Alternate Wetting and Drying) monitoring tools covering field conditions, water levels and farmer activities.</li>
+          <li>Built backend and frontend modules for agricultural data collection, including records, comments, images and GPS data.</li>
+          <li>Delivered dashboards for field tracking, water-level analysis and progress reporting to Japanese stakeholders.</li>
+          <li>Worked directly with Japanese consultants, agronomists and field officers to turn AWD requirements into system features.</li>
+          <li>Designed simple, user-friendly interfaces for field surveyors and farmers with low technical background.</li>
+          <li>Owned code reviews, task planning and technical decisions for the team.</li>
         </ul>
-        <div class="wc-tags"><span class="wt">FastAPI</span><span class="wt">Python</span><span class="wt">Payment Gateway</span><span class="wt">3rd-Party APIs</span></div>
+        <div class="wc-tags"><span class="wt">Python</span><span class="wt">Django</span><span class="wt">FastAPI</span><span class="wt">Vue.js</span><span class="wt">REST API</span><span class="wt">GraphQL</span></div>
       </div>
 
       <div class="wc">
         <div class="wc-num">03</div>
-        <div class="wc-period">01 · 2021 — 11 · 2023</div>
-        <div class="wc-co">Circle FinTech</div>
+        <div class="wc-period">11 · 2023 — 06 · 2025</div>
+        <div class="wc-co">Fingerprint IT</div>
         <div class="wc-role">Software Engineer</div>
         <ul class="wc-dots">
-          <li>Billing and settlement services handling millions in daily transactions.</li>
-          <li>Scalable Django applications for the core fintech platform.</li>
-          <li>Multiple API integrations and full documentation lifecycle.</li>
+          <li>Developed, maintained and troubleshot the company's legacy payment service, improving stability and reducing production issues.</li>
+          <li>Designed and built a scalable payment gateway in Python using FastAPI.</li>
+          <li>Integrated multiple third-party payment gateways and partner REST APIs.</li>
+          <li>Handled end-to-end delivery from requirement analysis through deployment and post-release support.</li>
+          <li>Wrote technical documentation and worked with QA and partner teams on integration testing.</li>
         </ul>
-        <div class="wc-tags"><span class="wt">Django</span><span class="wt">Billing</span><span class="wt">Settlement</span><span class="wt">FinTech</span></div>
+        <div class="wc-tags"><span class="wt">Python</span><span class="wt">FastAPI</span><span class="wt">Django</span><span class="wt">REST API</span><span class="wt">Docker</span></div>
       </div>
 
       <div class="wc">
         <div class="wc-num">04</div>
+        <div class="wc-period">01 · 2021 — 10 · 2023</div>
+        <div class="wc-co">Circle FinTech</div>
+        <div class="wc-role">Software Engineer</div>
+        <ul class="wc-dots">
+          <li>Designed, built and maintained billing and settlement services for multiple MFS, bank and payment gateway partners using Python and Django.</li>
+          <li>Integrated third-party APIs (REST and GraphQL), including the OK Wallet integration with Jamuna Bank's JustPay service.</li>
+          <li>Implemented a Global KYC (GKYC) onboarding system for the Jamuna Bank mobile app.</li>
+          <li>Wrote reusable libraries and technical documentation to speed up delivery across the team.</li>
+          <li>Containerised services with Docker and collaborated cross-functionally with product, QA and partner teams to ship production releases.</li>
+        </ul>
+        <div class="wc-tags"><span class="wt">Python</span><span class="wt">Django</span><span class="wt">REST API</span><span class="wt">GraphQL</span><span class="wt">Docker</span></div>
+      </div>
+
+      <div class="wc">
+        <div class="wc-num">05</div>
         <div class="wc-period">10 · 2019 — 12 · 2020</div>
         <div class="wc-co">Circle FinTech</div>
         <div class="wc-role">Junior Software Engineer</div>
         <ul class="wc-dots">
-          <li>Integrated financial APIs into the existing platform.</li>
-          <li>Code documentation and regular upgrades.</li>
+          <li>Developed and tested backend features for banking and payment applications using Python and Django.</li>
+          <li>Built and maintained REST API integrations with partner banks and payment services.</li>
+          <li>Supported the billing and settlement module, fixing bugs and improving reliability in production.</li>
+          <li>Wrote clean, reusable code and documentation following team coding standards.</li>
+          <li>Worked closely with senior engineers and QA to deliver releases on schedule.</li>
         </ul>
-        <div class="wc-tags"><span class="wt">Python</span><span class="wt">API Integration</span><span class="wt">Documentation</span></div>
+        <div class="wc-tags"><span class="wt">Python</span><span class="wt">Django</span><span class="wt">REST API</span><span class="wt">JavaScript</span></div>
       </div>
 
     </div>
@@ -980,9 +1084,6 @@ textarea.cf-in{resize:vertical;min-height:130px}
     </div>
 
   </div>
-  <p style="font-size:.65rem;color:var(--g);font-family:'JetBrains Mono',monospace;text-align:center;margin-top:2rem;letter-spacing:.1em;opacity:.6">
-    // replace project cards with your actual screenshots — drop &lt;img&gt; inside .pcard-ph divs
-  </p>
 </section>
 
 <!-- SKILLS -->
@@ -1005,7 +1106,7 @@ textarea.cf-in{resize:vertical;min-height:130px}
   <div class="spot-word">CLOUD</div>
   <div class="spot-inner">
     <div class="reveal">
-      <div class="se"><span>●</span>Live · ZK IT Solution</div>
+      <div class="se"><span>●</span>Live · GenNext Technologies</div>
       <div class="stitle">MEGHNA<br><span class="l">CLOUD</span></div>
       <p class="sp2">A cloud infrastructure platform for Bangladesh's growing tech ecosystem. Architecting scalable compute, storage, and billing — fast, resilient, and developer-first.</p>
       <div class="fl">
@@ -1143,7 +1244,7 @@ textarea.cf-in{resize:vertical;min-height:130px}
           <a href="mailto:jaforakib@gmail.com" class="ci"><span class="cit">Email</span><span class="civ">jaforakib@gmail.com</span></a>
           <a href="tel:+8801673167567" class="ci"><span class="cit">Phone</span><span class="civ">+880 1673 167567</span></a>
           <a href="https://www.linkedin.com/in/akib-jafor" target="_blank" class="ci"><span class="cit">LinkedIn</span><span class="civ">/in/akib-jafor</span></a>
-          <a href="https://github.com/akib-jafor" target="_blank" class="ci"><span class="cit">GitHub</span><span class="civ">github.com/akib-jafor</span></a>
+          <a href="https://github.com/AkibUllah" target="_blank" class="ci"><span class="cit">GitHub</span><span class="civ">github.com/AkibUllah</span></a>
           <div class="ci"><span class="cit">Location</span><span class="civ">Dhaka, Bangladesh 🇧🇩</span></div>
         </div>
         <div class="cr-divider"></div>
@@ -1166,10 +1267,11 @@ textarea.cf-in{resize:vertical;min-height:130px}
 <script>
 /* CURSOR */
 const cur=document.getElementById('cur'),cur2=document.getElementById('cur2');
-let mx=0,my=0,rx=0,ry=0;
+let mx=0,my=0,rx=0,ry=0,curStarted=false;
 document.addEventListener('mousemove',e=>{
   mx=e.clientX;my=e.clientY;
   cur.style.left=mx+'px';cur.style.top=my+'px';
+  if(!curStarted){curStarted=true;rx=mx;ry=my;cur.classList.add('active');cur2.classList.add('active');}
 });
 (function t(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;cur2.style.left=rx+'px';cur2.style.top=ry+'px';requestAnimationFrame(t)})();
 document.querySelectorAll('a,button,.wc,.bc,.pcard').forEach(el=>{
@@ -1371,7 +1473,7 @@ function typeStep(){
 }
 
 /* ── MAGNETIC BUTTONS ── */
-document.querySelectorAll('.btnl,.btno,.hbtn,.btn-l,.btn-o').forEach(btn=>{
+document.querySelectorAll('.btnl,.btno,.btn-cv,.hbtn,.btn-l,.btn-o').forEach(btn=>{
   btn.classList.add('mag-btn');
   btn.addEventListener('mousemove',e=>{
     const r=btn.getBoundingClientRect();
