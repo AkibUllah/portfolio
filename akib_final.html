@@ -1927,7 +1927,9 @@ scDots.forEach(d=>{d.style.cursor='none';d.addEventListener('click',()=>{documen
 
 /* ── CONTACT FORM ── */
 const WA_NUMBER='8801673167567';
-const W3F_KEY='68371ecb-7771-4b34-a925-4fada3c52522'; // Web3Forms access key — public by design, only delivers to my inbox
+// EmailJS (public key is safe to expose; Gmail auth stays on EmailJS). Leave empty = "send by email" opens the mail app.
+const EMAILJS={publicKey:'',serviceId:'',templateToMe:'',templateAutoReply:''};
+if(EMAILJS.publicKey){const sc=document.createElement('script');sc.src='https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js';sc.onload=()=>emailjs.init({publicKey:EMAILJS.publicKey});document.head.appendChild(sc);}
 let cfBusy=false;
 async function sendForm(via){
   if(cfBusy)return;
@@ -1946,19 +1948,21 @@ async function sendForm(via){
     say('// Opening WhatsApp — just tap Send');setTimeout(()=>say(''),6000);return;
   }
   if(!emailOk){say('// Please enter your email so I can reply','#f87171');document.getElementById('cf-email')?.focus();return}
-  if(document.getElementById('cf-hp')?.value){say('// Sent');return} // honeypot: pretend success for bots
+  if(document.getElementById('cf-hp')?.value){say('// Sent');return}
+  const subj=subject||`Portfolio contact from ${name}`;
+  if(!(EMAILJS.publicKey&&window.emailjs)){
+    location.href=`mailto:jaforakib@gmail.com?subject=${encodeURIComponent(subj)}&body=${encodeURIComponent(text)}`;
+    say('// Opening your mail app...');setTimeout(()=>say(''),6000);return;
+  }
   cfBusy=true;const mb=document.getElementById('cf-mail');if(mb)mb.disabled=true;say('// Sending...');
+  const params={from_name:name,from_email:email,subject:subj,message:msg};
   try{
-    const r=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},
-      body:JSON.stringify({access_key:W3F_KEY,subject:subject?`[Portfolio] ${subject}`:`[Portfolio] Message from ${name}`,from_name:name,name,email,message:msg,botcheck:'',
-        autoresponse:{subject:'Thanks — I received your message',body:`Hi ${name},\n\nThanks for reaching out. I've received your message and will reply within one working day.\n\n— Md. Akib Ullah Jafor\nhttps://akibullah.github.io/portfolio/`}})});
-    const j=await r.json();
-    if(j.success){say("// Sent — thanks! I'll reply within one working day.");['cf-name','cf-email','cf-subject','cf-msg'].forEach(id=>{const el=document.getElementById(id);if(el)el.value=''});}
-    else throw new Error(j.message||'failed');
-  }catch(e){
-    say('// Could not send — opening your mail app instead','#f87171');
-    location.href=`mailto:jaforakib@gmail.com?subject=${encodeURIComponent(subject||`Portfolio contact from ${name}`)}&body=${encodeURIComponent(text)}`;
-  }finally{cfBusy=false;if(mb)mb.disabled=false;setTimeout(()=>say(''),8000)}
+    await emailjs.send(EMAILJS.serviceId,EMAILJS.templateToMe,params);
+    if(EMAILJS.templateAutoReply)emailjs.send(EMAILJS.serviceId,EMAILJS.templateAutoReply,params).catch(()=>{});
+    say("// Sent — thanks! I'll reply within one working day.");
+    ['cf-name','cf-email','cf-subject','cf-msg'].forEach(id=>{const el=document.getElementById(id);if(el)el.value=''});
+  }catch(e){say('// Could not send — opening your mail app instead','#f87171');location.href=`mailto:jaforakib@gmail.com?subject=${encodeURIComponent(subj)}&body=${encodeURIComponent(text)}`;}
+  finally{cfBusy=false;if(mb)mb.disabled=false;setTimeout(()=>say(''),8000)}
 }
 
 /* ── EDUCATION CARDS OBSERVER ── */
