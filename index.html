@@ -237,6 +237,7 @@ section{position:relative;z-index:1}
 .proj-intro{font-size:.92rem;color:var(--g);line-height:1.8;max-width:680px;margin:-1.5rem 0 2.5rem}
 .proj-divider{grid-column:1/-1;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.06);margin-top:.5rem}
 .pcard-own{grid-column:span 2;aspect-ratio:auto;text-decoration:none;color:inherit;display:flex;flex-direction:row;align-items:stretch}
+div.pcard-own{cursor:default}
 .pcard-own .pcard-ph{position:relative !important;inset:auto !important;width:44%;flex-shrink:0;border-right:1px solid rgba(255,255,255,.06)}
 .pcard-own .pcard-ph img{transition:transform .6s}
 .pcard-own:hover .pcard-ph img{transform:scale(1.04)}
@@ -784,7 +785,7 @@ textarea.cf-in{resize:vertical;min-height:130px}
 }
 </style>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Person","name":"Md. Akib Ullah Jafor","alternateName":"Akib Jafor","jobTitle":"Senior Software Engineer","description":"Senior Software Engineer based in Dhaka, Bangladesh, building payment systems, cloud infrastructure and agri-tech platforms with Python, Django, FastAPI and Vue.js.","email":"jaforakib@gmail.com","telephone":"+8801673167567","url":"https://akibullah.github.io/portfolio/","image":"https://akibullah.github.io/portfolio/akib_photo.jpg","sameAs":["https://www.linkedin.com/in/akib-jafor","https://github.com/AkibUllah"],"worksFor":{"@type":"Organization","name":"GenNext Technologies"},"alumniOf":{"@type":"CollegeOrUniversity","name":"North South University"},"address":{"@type":"PostalAddress","addressLocality":"Dhaka","addressCountry":"BD"},"knowsAbout":["Python","Django","FastAPI","Next.js","React","Vue.js","GraphQL","REST API","Payment Gateways","bKash Integration","E-commerce","Point of Sale","Healthcare Websites","Appointment Booking Systems","Corporate Websites","WebGL & Motion Design","PHP","nginx","OpenStack","Cloud Infrastructure","Team Leadership"],"makesOffer":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Payment Gateway & FinTech Integration","areaServed":"Bangladesh"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Backend & API Development (Python, Django, FastAPI)"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Cloud Infrastructure & Platforms (OpenStack)"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Dashboards & Data Platforms (Vue.js)"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Legacy System Modernisation"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Technical Leadership & Consulting"}}]}
+{"@context":"https://schema.org","@type":"Person","name":"Md. Akib Ullah Jafor","alternateName":"Akib Jafor","jobTitle":"Senior Software Engineer","description":"Senior Software Engineer based in Dhaka, Bangladesh, building payment systems, cloud infrastructure and agri-tech platforms with Python, Django, FastAPI and Vue.js.","email":"jaforakib@gmail.com","telephone":"+8801673167567","url":"https://akibullah.github.io/portfolio/","image":"https://akibullah.github.io/portfolio/akib_photo.jpg","sameAs":["https://www.linkedin.com/in/akib-jafor","https://github.com/AkibUllah"],"worksFor":{"@type":"Organization","name":"GenNext Technologies"},"alumniOf":{"@type":"CollegeOrUniversity","name":"North South University"},"address":{"@type":"PostalAddress","addressLocality":"Dhaka","addressCountry":"BD"},"knowsAbout":["Python","Django","FastAPI","Next.js","React","Vue.js","GraphQL","REST API","Payment Gateways","bKash Integration","E-commerce","Point of Sale","Healthcare Websites","Appointment Booking Systems","Corporate Websites","WebGL & Motion Design","PHP","nginx","Point of Sale Software","Desktop Applications","Thermal Receipt Printing","VAT Invoicing (Mushak 6.3)","OpenStack","Cloud Infrastructure","Team Leadership"],"makesOffer":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Payment Gateway & FinTech Integration","areaServed":"Bangladesh"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Backend & API Development (Python, Django, FastAPI)"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Cloud Infrastructure & Platforms (OpenStack)"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Dashboards & Data Platforms (Vue.js)"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Legacy System Modernisation"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Technical Leadership & Consulting"}}]}
 </script>
 </head>
 <body>
@@ -1067,7 +1068,7 @@ textarea.cf-in{resize:vertical;min-height:130px}
 <section id="projects" class="sp">
   <div class="eye reveal">// 02 — Projects</div>
   <h2 class="sh reveal cod-flicker" data-orig="WHAT I'VE BUILT">WHAT<br>I'VE BUILT</h2>
-  <p class="proj-intro reveal">Platform work from my full-time roles first — cloud, agri-tech and fintech systems. Below them, four client products I built end-to-end and that are live today.</p>
+  <p class="proj-intro reveal">Platform work from my full-time roles first — cloud, agri-tech and fintech systems. Below them, five client products I built end-to-end — four live on the web, one installed on shop counters.</p>
   <div class="proj-grid">
 
     <!-- Featured big project -->
@@ -1191,6 +1192,30 @@ textarea.cf-in{resize:vertical;min-height:130px}
         <div class="pcard-stack"><span class="ptag">HTML5</span><span class="ptag">CSS3</span><span class="ptag">JavaScript (ES2020)</span><span class="ptag">Three.js</span><span class="ptag">WebGL</span><span class="ptag">GSAP ScrollTrigger</span><span class="ptag">Lenis</span><span class="ptag">Canvas 2D</span><span class="ptag">Web Audio API</span><span class="ptag">PHP</span><span class="ptag">SMTP</span><span class="ptag">Bash</span><span class="ptag">nginx</span><span class="ptag">TLS / HSTS</span><span class="ptag">DevOps</span></div>
       </div>
     </a>
+
+    <div class="pcard pcard-own reveal" style="transition-delay:.1s">
+      <div class="pcard-ph" style="position:absolute;inset:0;background:#060d1f;overflow:hidden">
+        <img src="nexus-pos.jpg" alt="Nexus POS — offline desktop point-of-sale: reports dashboard and a Bangla Mushak 6.3 VAT receipt" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:left top;display:block">
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(2,4,11,.95) 0%,rgba(2,4,11,.35) 55%,transparent 100%)"></div>
+      </div>
+      <div class="pcard-overlay">
+        <div class="pcard-tag">// Client project · Built end-to-end · Offline desktop app · Windows &amp; Ubuntu</div>
+        <div class="pcard-title">Nexus POS — Offline Desktop Point of Sale for Bangladeshi Shops</div>
+        <div class="pcard-desc">A fully offline desktop point-of-sale for small shops in Bangladesh. Installs like a normal Windows or Ubuntu program, opens one native window and works with no internet at all. Prints Bangla and English receipts on any 80mm thermal printer, produces the NBR <strong>Mushak 6.3</strong> VAT challan, and keeps every sale in one SQLite file on the shop's own computer. A closed-source commercial product with a licensing system — built to be sold, not just demoed.
+          <ul class="pcard-list">
+            <li><strong>Bangla on printers with no Bangla font:</strong> receipts render as 1-bit bitmaps sent via ESC/POS raster. Wrote a custom text shaper on HarfBuzz + FreeType (avoiding LGPL libraqm in a closed-source product), validated pixel-for-pixel against Pillow's output, with shaping self-checks at build, startup and on the printed test page.</li>
+            <li><strong>Exact money arithmetic:</strong> integer poisha and milli-units only, no floats. Bill discounts allocated across lines by largest-remainder so parts always sum; VAT computed the way NBR expects. The engine exists twice — Python as the authority, TypeScript for live cart updates — and the server recomputes on save.</li>
+            <li><strong>Immutable, auditable invoices:</strong> no edit endpoint; corrections are voids with reason and user. VAT rate, pricing mode and shop identity are snapshotted onto every invoice so a reprint years later shows what was actually charged.</li>
+            <li><strong>Hand-written ESC/POS driver:</strong> raster bands, feed, cut, cash-drawer pulse and CODE128 barcodes, verified on Epson and common Chinese clones; targets Windows spooler RAW, USB, network port 9100, file dump and a discard mode. A print failure never fails a sale.</li>
+            <li><strong>Offline licensing:</strong> Ed25519-signed licences bound to hashed hardware signals with a tolerance rule, 14-day grace after expiry, check in two places, and an adversarial test suite (forged keys, edited keys, wrong machine, copied files).</li>
+            <li><strong>Built for a shop PC that loses power:</strong> SQLite WAL with synchronous FULL, cart persisted to localStorage, VACUUM INTO backups during trading, invoice numbering safe under races, and additive self-healing schema upgrades so an update never depends on someone running a migration.</li>
+            <li><strong>Real desktop packaging:</strong> one-folder PyInstaller build, Inno Setup installer that silently installs WebView2, a portable build, a Debian package, and a GitHub Actions Windows runner; a built-in self-test checks fonts, shaping, UI bundle, data folder and 576-dot receipt rendering.</li>
+          </ul>
+          <div class="pcard-scale">~7,500 lines Python · ~7,000 lines TypeScript/React · 4 design docs + README · keyboard-driven billing · bilingual UI + dark mode · every dependency MIT/BSD/Apache/HPND/OFL</div>
+        </div>
+        <div class="pcard-stack"><span class="ptag">Python 3.11</span><span class="ptag">FastAPI</span><span class="ptag">SQLAlchemy 2</span><span class="ptag">SQLite (WAL)</span><span class="ptag">React 18</span><span class="ptag">TypeScript</span><span class="ptag">Zustand</span><span class="ptag">Tailwind</span><span class="ptag">pywebview</span><span class="ptag">WebView2 / WebKitGTK</span><span class="ptag">HarfBuzz</span><span class="ptag">FreeType</span><span class="ptag">ESC/POS</span><span class="ptag">Ed25519</span><span class="ptag">PyInstaller</span><span class="ptag">Inno Setup</span><span class="ptag">dpkg</span><span class="ptag">GitHub Actions</span></div>
+      </div>
+    </div>
 
     <a href="https://fatimahhospital.com.bd/" target="_blank" rel="noopener" class="pcard pcard-own reveal" style="transition-delay:.1s">
       <div class="pcard-ph" style="position:absolute;inset:0;background:#060d1f;overflow:hidden">
