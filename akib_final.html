@@ -247,6 +247,7 @@ section{position:relative;z-index:1}
 .pcard-list{list-style:none;margin:.9rem 0 0;display:flex;flex-direction:column;gap:.4rem}
 .pcard-list li{position:relative;padding-left:1rem;font-size:.75rem;line-height:1.55}
 .pcard-list li::before{content:'→';position:absolute;left:0;color:#4f8fff;font-size:.65rem;top:.1rem}
+.pcard-scale{margin-top:.9rem;font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.04em;color:#6f9fff;line-height:1.6}
 .pcard-own .pcard-title{font-size:2rem}
 .pcard-own .pcard-tag{color:#6f9fff}
 .pcard-own:hover .pcard-img{transform:none}
@@ -1112,14 +1113,24 @@ textarea.cf-in{resize:vertical;min-height:130px}
 
     <a href="https://www.orthoplastix.com/" target="_blank" rel="noopener" class="pcard pcard-own reveal" style="transition-delay:.1s">
       <div class="pcard-ph" style="position:absolute;inset:0;background:#060d1f;overflow:hidden">
-        <img src="orthoplastix.jpg" alt="Orthoplastix — orthopaedic surgery practice website homepage" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block">
+        <img src="orthoplastix.jpg" alt="Orthoplastix — bilingual orthopaedic clinic website homepage" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block">
         <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(2,4,11,.95) 0%,rgba(2,4,11,.35) 55%,transparent 100%)"></div>
       </div>
       <div class="pcard-overlay">
         <div class="pcard-tag">// Client project · Built end-to-end · Live ↗</div>
-        <div class="pcard-title">Orthoplastix — Surgical Practice Platform</div>
-        <div class="pcard-desc">Bilingual (English/বাংলা) website and CMS for an orthopaedic &amp; reconstructive surgeon. Two front doors — patients search symptoms in plain words, referring physicians search by technique — joined by a shared content model with per-procedure recovery timelines. Consultation booking with slot picker and email notifications, admin panel, journal, and a canvas-drawn anatomy hero that peels skin → muscle → vessels → bone on scroll.</div>
-        <div class="pcard-stack"><span class="ptag">FastAPI</span><span class="ptag">React</span><span class="ptag">TypeScript</span><span class="ptag">PostgreSQL</span><span class="ptag">i18n</span><span class="ptag">Docker</span></div>
+        <div class="pcard-title">Orthoplastix — Bilingual Clinical Website + CMS</div>
+        <div class="pcard-desc">Bilingual clinical website and content platform for an orthopaedic &amp; hand-reconstruction practice in Dhaka. A complete build — public site, custom CMS, patient enquiry pipeline and deployment. No WordPress, no page builder: the practice edits every word of both languages through an admin built for them.
+          <ul class="pcard-list">
+            <li><strong>Full English/Bengali site:</strong> 1,140 translated strings with a review-and-publish workflow, so nothing half-translated reaches a patient.</li>
+            <li><strong>Clinical content library:</strong> 103 conditions and 7 procedures, each with recovery timelines, risks and anaesthetic detail, cross-linked by body area and specialty.</li>
+            <li><strong>Custom admin panel:</strong> the practice edits page wording, procedures, conditions, articles, the doctor's profile and translations — no developer needed.</li>
+            <li><strong>Patient enquiry system:</strong> form → database → two designed HTML emails (practice notification and patient confirmation), both bilingual.</li>
+            <li><strong>Original anatomical illustrations:</strong> generated, then colour-graded in Python to match the site's palette exactly.</li>
+            <li><strong>SEO and accessibility:</strong> per-page meta, JSON-LD structured data, sitemap, semantic markup, keyboard navigation.</li>
+          </ul>
+          <div class="pcard-scale">~20,000 lines Python · ~9,000 lines TypeScript · 14 pages · 13 API modules · 10 data models · 1,140 translations · 103 conditions</div>
+        </div>
+        <div class="pcard-stack"><span class="ptag">React 18</span><span class="ptag">TypeScript</span><span class="ptag">Vite</span><span class="ptag">React Router</span><span class="ptag">Python 3.12</span><span class="ptag">FastAPI</span><span class="ptag">SQLAlchemy 2.0</span><span class="ptag">PostgreSQL 16</span><span class="ptag">JWT</span><span class="ptag">aiosmtplib</span><span class="ptag">Pillow</span><span class="ptag">Docker</span><span class="ptag">Nginx</span><span class="ptag">Let's Encrypt</span><span class="ptag">Playwright</span></div>
       </div>
     </a>
 
