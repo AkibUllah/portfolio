@@ -326,7 +326,10 @@ section{position:relative;z-index:1}
 .avail{display:flex;align-items:center;gap:.5rem;font-size:.6rem;letter-spacing:.12em;color:var(--g);font-family:'JetBrains Mono',monospace;text-transform:uppercase}
 
 /* FOOTER */
-footer{padding:2rem 5vw;border-top:1px solid rgba(255,255,255,.04);display:flex;align-items:center;justify-content:space-between;position:relative;z-index:1}
+footer{padding:2rem 5vw 6.5rem;border-top:1px solid rgba(255,255,255,.04);display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;position:relative;z-index:1}
+.ft-links{display:flex;gap:1.5rem}
+.ft-links a{font-size:.62rem;font-family:'JetBrains Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--g);text-decoration:none;cursor:none;transition:color .25s}
+.ft-links a:hover{color:#4f8fff}
 .ft{font-size:.62rem;color:var(--g);font-family:'JetBrains Mono',monospace}
 .ft span{color:#4f8fff}
 
@@ -784,7 +787,8 @@ textarea.cf-in{resize:vertical;min-height:130px}
   .nav-dot-pill{display:none}
   .mq-t span{font-size:.85rem;padding:0 1.5rem}
   .scroll-cue{display:none}
-  footer{flex-direction:column;gap:.5rem;text-align:center;padding:1.5rem 4vw}
+  footer{flex-direction:column;gap:.75rem;text-align:center;padding:1.5rem 4vw 2rem}
+  .ft-links{justify-content:center;gap:1.1rem}
   .tstats{grid-template-columns:1fr 1fr}
   .pcard-overlay{padding:1.25rem}
   .pcard-title{font-size:1rem}
@@ -1415,7 +1419,13 @@ textarea.cf-in{resize:vertical;min-height:130px}
 
 </main>
 <footer>
-  <div class="ft">© 2025 <span>Md. Akib Ullah Jafor</span></div>
+  <div class="ft">© <span id="ft-year">2026</span> <span>Md. Akib Ullah Jafor</span></div>
+  <div class="ft-links">
+    <a href="mailto:jaforakib@gmail.com">Email</a>
+    <a href="https://www.linkedin.com/in/akib-jafor" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://github.com/AkibUllah" target="_blank" rel="noopener">GitHub</a>
+    <a href="Akib_Jafor_CV.pdf" target="_blank">CV</a>
+  </div>
   <div class="ft">Dhaka, BD · Built with <span>♥</span></div>
 </footer>
 
@@ -1865,6 +1875,8 @@ function updateClock(){
 }
 updateClock();setInterval(updateClock,1000);
 setTimeout(()=>clkWrap?.classList.add('show'),2500);
+
+document.getElementById('ft-year').textContent=new Date().getFullYear();
 
 /* ── BACK TO TOP ── */
 const btt=document.getElementById('btt');
