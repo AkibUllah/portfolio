@@ -235,14 +235,17 @@ section{position:relative;z-index:1}
 .pcard:hover .pcard-desc{max-height:60px;opacity:1}
 /* client products: description always visible, link card */
 .proj-intro{font-size:.92rem;color:var(--g);line-height:1.8;max-width:680px;margin:-1.5rem 0 2.5rem}
-.pcard-own{aspect-ratio:auto;text-decoration:none;color:inherit;display:flex;flex-direction:column}
-.pcard-own .pcard-ph{position:relative !important;inset:auto !important;aspect-ratio:16/9;flex-shrink:0;border-bottom:1px solid rgba(255,255,255,.06)}
+.pcard-own{grid-column:span 2;aspect-ratio:auto;text-decoration:none;color:inherit;display:flex;flex-direction:row;align-items:stretch}
+.pcard-own .pcard-ph{position:relative !important;inset:auto !important;width:44%;flex-shrink:0;border-right:1px solid rgba(255,255,255,.06)}
 .pcard-own .pcard-ph img{transition:transform .6s}
 .pcard-own:hover .pcard-ph img{transform:scale(1.04)}
-.pcard-own .pcard-ph>div{background:linear-gradient(to top,rgba(9,14,28,.9) 0%,transparent 40%) !important}
-.pcard-own .pcard-overlay{position:relative;background:none;padding:1.5rem 1.75rem 1.75rem}
+.pcard-own .pcard-ph>div{background:linear-gradient(to right,transparent 60%,rgba(9,14,28,.85) 100%) !important}
+.pcard-own .pcard-overlay{position:relative;background:none;padding:1.75rem 2rem;flex:1;justify-content:center}
 .pcard-own .pcard-desc{max-height:none;opacity:1;color:var(--g);font-size:.78rem;line-height:1.65}
 .pcard-own .pcard-desc strong{color:var(--w);font-weight:600}
+.pcard-list{list-style:none;margin:.9rem 0 0;display:flex;flex-direction:column;gap:.4rem}
+.pcard-list li{position:relative;padding-left:1rem;font-size:.75rem;line-height:1.55}
+.pcard-list li::before{content:'→';position:absolute;left:0;color:#4f8fff;font-size:.65rem;top:.1rem}
 .pcard-own .pcard-title{font-size:2rem}
 .pcard-own .pcard-tag{color:#6f9fff}
 .pcard-own:hover .pcard-img{transform:none}
@@ -505,6 +508,7 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
 .svc-tags{display:flex;flex-wrap:wrap;gap:.35rem}
 .svc-cta{margin-top:2.5rem}
 @media(max-width:1000px){.svc-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:1024px){.pcard-own{grid-column:span 1;flex-direction:column}.pcard-own .pcard-ph{width:100%;aspect-ratio:16/9;border-right:0;border-bottom:1px solid rgba(255,255,255,.06)}.pcard-own .pcard-ph>div{background:linear-gradient(to top,rgba(9,14,28,.9) 0%,transparent 40%) !important}.pcard-own .pcard-overlay{padding:1.5rem 1.75rem 1.75rem}}
 @media(max-width:600px){.svc-grid{grid-template-columns:1fr;gap:1rem}.svc-card{padding:1.6rem}.svc-intro{margin-top:-.5rem}}
 
 /* ── KONAMI FLASH — force hidden ── */
@@ -1091,9 +1095,17 @@ textarea.cf-in{resize:vertical;min-height:130px}
       </div>
       <div class="pcard-overlay">
         <div class="pcard-tag">// Client project · Built end-to-end · Live ↗</div>
-        <div class="pcard-title">ARISE — E-commerce &amp; Retail Platform</div>
-        <div class="pcard-desc">Complete commerce system for a Dhaka clothing brand: storefront with cart, checkout and order tracking; an in-store <strong>POS counter</strong>; and an admin HQ where every visible thing — pages, sections, popups, theme — is edited as data with no deploy. bKash, COD and bank payments; Pathao courier with live rates and COD fraud scoring; inventory, staff, finance, coupons and SMS/email/WhatsApp marketing; Meta Pixel + server-side Conversions API.</div>
-        <div class="pcard-stack"><span class="ptag">FastAPI</span><span class="ptag">Next.js</span><span class="ptag">PostgreSQL</span><span class="ptag">Redis</span><span class="ptag">Docker</span><span class="ptag">bKash</span><span class="ptag">POS</span></div>
+        <div class="pcard-title">ARISE — Full-Stack E-Commerce Platform + Admin ERP</div>
+        <div class="pcard-desc">A custom fashion e-commerce store with a complete back-office ERP — built from scratch, not a Shopify/WordPress theme. Handles the full journey from storefront browsing to order fulfilment, courier dispatch, payments, accounting and marketing analytics.
+          <ul class="pcard-list">
+            <li><strong>Storefront:</strong> catalog, collections, search, cart, wishlist, checkout, customer accounts, order tracking, CMS pages.</li>
+            <li><strong>Live delivery pricing:</strong> real-time Pathao courier integration — customer searches their area and gets the exact charge instantly.</li>
+            <li><strong>Payments:</strong> Cash on Delivery, bKash, bank transfer, with COD fraud-protection / advance-payment logic.</li>
+            <li><strong>Admin mini-ERP:</strong> POS order entry, order management, invoice &amp; shipping-label PDFs, customers, expenses, banks, financial reports, HR/payroll, leads/CRM, COD reconciliation, courier fraud checks.</li>
+            <li><strong>Marketing &amp; analytics:</strong> Meta Pixel + Conversions API and server-side GA4 for accurate conversion tracking.</li>
+          </ul>
+        </div>
+        <div class="pcard-stack"><span class="ptag">Next.js 14</span><span class="ptag">React 18</span><span class="ptag">TypeScript</span><span class="ptag">FastAPI</span><span class="ptag">SQLAlchemy 2.0</span><span class="ptag">PostgreSQL 16</span><span class="ptag">Redis 7</span><span class="ptag">JWT / RBAC</span><span class="ptag">Docker</span><span class="ptag">Nginx</span><span class="ptag">Pathao API</span><span class="ptag">bKash</span><span class="ptag">Meta CAPI</span><span class="ptag">GA4</span></div>
       </div>
     </a>
 
