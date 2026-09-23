@@ -1380,7 +1380,7 @@ textarea.cf-in{resize:vertical;min-height:130px}
               <input id="cf-name" class="cf-in" type="text" placeholder="Your full name">
             </div>
             <div class="cf-group">
-              <label class="cf-lbl" for="cf-email">// Email (optional)</label>
+              <label class="cf-lbl" for="cf-email">// Email (needed for email replies)</label>
               <input id="cf-email" class="cf-in" type="email" placeholder="your@email.com">
             </div>
           </div>
@@ -1393,8 +1393,9 @@ textarea.cf-in{resize:vertical;min-height:130px}
             <textarea id="cf-msg" class="cf-in" rows="5" placeholder="Tell me about your project..."></textarea>
           </div>
           <div style="display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;margin-top:.75rem">
+            <input type="text" id="cf-hp" name="botcheck" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;opacity:0;height:0;width:0" aria-hidden="true">
             <button id="cf-btn" class="cf-send cf-wa" onclick="sendForm('wa')"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1s-.5-.1-.7.1-.8 1-.9 1.2-.3.2-.6.1c-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1s0-.5.1-.6l.5-.6c.2-.2.2-.3.3-.5s0-.4 0-.5-.7-1.7-1-2.3c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4s-1 1-1 2.5 1.1 2.9 1.2 3.1 2.1 3.2 5.1 4.5c.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4s.2-1.3.2-1.4c-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>SEND ON WHATSAPP</button>
-            <button class="cf-alt" onclick="sendForm('mail')">or send by email</button>
+            <button class="cf-alt" id="cf-mail" onclick="sendForm('mail')">or send by email</button>
             <div id="cf-status" class="cf-status"></div>
           </div>
         </div>
@@ -1926,7 +1927,10 @@ scDots.forEach(d=>{d.style.cursor='none';d.addEventListener('click',()=>{documen
 
 /* ── CONTACT FORM ── */
 const WA_NUMBER='8801673167567';
-function sendForm(via){
+const W3F_KEY='68371ecb-7771-4b34-a925-4fada3c52522'; // Web3Forms access key — public by design, only delivers to my inbox
+let cfBusy=false;
+async function sendForm(via){
+  if(cfBusy)return;
   const name=document.getElementById('cf-name')?.value.trim();
   const email=document.getElementById('cf-email')?.value.trim();
   const subject=document.getElementById('cf-subject')?.value.trim();
@@ -1934,16 +1938,27 @@ function sendForm(via){
   const status=document.getElementById('cf-status');
   const say=(t,c)=>{if(status){status.style.color=c||'var(--lime)';status.textContent=t}};
   if(!name||!msg){say('// Please add your name and a message','#f87171');return}
-  if(email&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){say('// Please enter a valid email address','#f87171');return}
+  const emailOk=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email||'');
+  if(email&&!emailOk){say('// Please enter a valid email address','#f87171');return}
   const text=`Hi Akib, I'm ${name}.${subject?` Subject: ${subject}.`:''}\n\n${msg}${email?`\n\nReply to: ${email}`:''}`;
-  if(via==='mail'){
-    location.href=`mailto:jaforakib@gmail.com?subject=${encodeURIComponent(subject||`Portfolio contact from ${name}`)}&body=${encodeURIComponent(text)}`;
-    say('// Opening your mail app...');
-  }else{
+  if(via!=='mail'){
     window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`,'_blank','noopener');
-    say('// Opening WhatsApp — just tap Send');
+    say('// Opening WhatsApp — just tap Send');setTimeout(()=>say(''),6000);return;
   }
-  setTimeout(()=>say(''),6000);
+  if(!emailOk){say('// Please enter your email so I can reply','#f87171');document.getElementById('cf-email')?.focus();return}
+  if(document.getElementById('cf-hp')?.value){say('// Sent');return} // honeypot: pretend success for bots
+  cfBusy=true;const mb=document.getElementById('cf-mail');if(mb)mb.disabled=true;say('// Sending...');
+  try{
+    const r=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},
+      body:JSON.stringify({access_key:W3F_KEY,subject:subject?`[Portfolio] ${subject}`:`[Portfolio] Message from ${name}`,from_name:name,name,email,message:msg,botcheck:'',
+        autoresponse:{subject:'Thanks — I received your message',body:`Hi ${name},\n\nThanks for reaching out. I've received your message and will reply within one working day.\n\n— Md. Akib Ullah Jafor\nhttps://akibullah.github.io/portfolio/`}})});
+    const j=await r.json();
+    if(j.success){say("// Sent — thanks! I'll reply within one working day.");['cf-name','cf-email','cf-subject','cf-msg'].forEach(id=>{const el=document.getElementById(id);if(el)el.value=''});}
+    else throw new Error(j.message||'failed');
+  }catch(e){
+    say('// Could not send — opening your mail app instead','#f87171');
+    location.href=`mailto:jaforakib@gmail.com?subject=${encodeURIComponent(subject||`Portfolio contact from ${name}`)}&body=${encodeURIComponent(text)}`;
+  }finally{cfBusy=false;if(mb)mb.disabled=false;setTimeout(()=>say(''),8000)}
 }
 
 /* ── EDUCATION CARDS OBSERVER ── */
