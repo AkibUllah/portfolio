@@ -685,7 +685,9 @@ textarea.cf-in{resize:vertical;min-height:130px}
   display:none;
   flex-direction:column;
   align-items:center;justify-content:center;
-  gap:2.5rem;
+  gap:clamp(.6rem,2.2vh,1.6rem);
+  padding:calc(64px + env(safe-area-inset-top)) 1.5rem calc(2rem + env(safe-area-inset-bottom));
+  overflow-y:auto;-webkit-overflow-scrolling:touch;
   transform:translateX(110%);
   transition:transform .5s cubic-bezier(.16,1,.3,1);
   backdrop-filter:blur(20px);
@@ -696,10 +698,11 @@ textarea.cf-in{resize:vertical;min-height:130px}
 }
 .mobile-menu a{
   font-family:'Bebas Neue',sans-serif;
-  font-size:3.5rem;letter-spacing:.08em;
+  font-size:clamp(1.8rem,6.4vh,3.2rem);letter-spacing:.08em;line-height:1;
   color:var(--w);text-decoration:none;
-  transition:color .25s;cursor:none;
+  transition:color .25s;cursor:none;flex-shrink:0;
 }
+@media(max-height:560px){.mobile-menu{justify-content:flex-start}}
 .mobile-menu a:hover{color:var(--lime)}
 
 
