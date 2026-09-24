@@ -424,9 +424,9 @@ footer .ft:last-child{text-align:right}
 
 
 /* ── TYPED ROLE ── */
-.typed-wrap{display:flex;align-items:center;gap:.5rem;margin-bottom:1.5rem;opacity:0;transition:opacity .6s 1.2s}
+.typed-wrap{display:flex;align-items:center;gap:.5rem;margin-bottom:1.5rem;opacity:0;transition:opacity .6s 1.2s;white-space:nowrap;flex-shrink:0;max-width:none}
 .typed-wrap.go{opacity:1}
-.typed-label{font-size:.72rem;color:var(--g);font-family:'JetBrains Mono',monospace;letter-spacing:.1em}
+.typed-label{font-size:.72rem;color:var(--g);font-family:'JetBrains Mono',monospace;letter-spacing:.1em;white-space:nowrap}
 .typed-text{font-size:.72rem;color:var(--lime);font-family:'JetBrains Mono',monospace;letter-spacing:.05em;font-weight:500}
 .typed-cursor{display:inline-block;width:2px;height:.9em;background:var(--lime);margin-left:2px;vertical-align:middle;animation:tc 1s step-end infinite}
 @keyframes tc{0%,100%{opacity:1}50%{opacity:0}}
