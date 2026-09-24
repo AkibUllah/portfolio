@@ -300,6 +300,10 @@ div.pcard-own{cursor:default}
 .pi{font-size:.63rem;font-family:'JetBrains Mono',monospace;padding:.22rem .7rem;border-radius:20px;border:1px solid rgba(255,255,255,.07);color:var(--g)}
 .pi.l{background:rgba(65,105,225,.09);border-color:rgba(65,105,225,.22);color:#4f8fff}
 .pi.b{background:rgba(61,127,255,.07);border-color:rgba(61,127,255,.18);color:#80aaff}
+.py-list{list-style:none;display:flex;flex-direction:column;gap:.55rem}
+.py-list li{position:relative;padding-left:1.1rem;font-size:.74rem;line-height:1.5;color:var(--g)}
+.py-list li::before{content:'→';position:absolute;left:0;top:.05rem;color:#4f8fff;font-size:.65rem}
+.py-list strong{color:var(--w);font-weight:600}
 .sbars{display:flex;flex-direction:column;gap:.9rem;margin-top:.5rem}
 .sbr{display:flex;align-items:center;gap:.75rem}
 .sbn{font-size:.7rem;color:var(--w);min-width:58px}
@@ -1308,7 +1312,16 @@ textarea.cf-in{resize:vertical;min-height:130px}
   <div class="eye reveal">// 04 — Capabilities</div>
   <h2 class="sh reveal cod-flicker" data-orig="MY STACK">MY STACK</h2>
   <div class="bento">
-    <div class="bc b1"><div class="bl">// primary language</div><div class="bb">Py<br>thon</div><div style="font-size:.77rem;color:var(--g);line-height:1.7;margin-top:1rem">From Django monoliths to FastAPI microservices — the engine behind every system I build.</div><div class="pw"><span class="pi l">Django</span><span class="pi l">FastAPI</span><span class="pi l">REST</span><span class="pi l">GraphQL</span></div></div>
+    <div class="bc b1"><div class="bl">// primary language</div><div class="bb">Py<br>thon</div><div style="font-size:.77rem;color:var(--g);line-height:1.7;margin-top:1rem">From Django monoliths to FastAPI microservices — the engine behind every system I build.</div><div class="pw"><span class="pi l">Django</span><span class="pi l">FastAPI</span><span class="pi l">SQLAlchemy</span><span class="pi l">Pydantic</span><span class="pi l">REST</span><span class="pi l">GraphQL</span></div>
+      <div class="bl" style="margin:1.75rem 0 .9rem">// shipped with it</div>
+      <ul class="py-list">
+        <li><strong>Payment gateway</strong> — multi-provider routing, settlement, reconciliation</li>
+        <li><strong>Billing &amp; settlement</strong> — MFS, bank and gateway partners, millions in daily volume</li>
+        <li><strong>Cloud control plane</strong> — OpenStack compute, storage, metering, multi-tenant auth</li>
+        <li><strong>E-commerce back-office</strong> — orders, POS, courier fraud checks, HR &amp; finance</li>
+        <li><strong>Bilingual CMS APIs</strong> — content, translations, bookings, email pipelines</li>
+        <li><strong>Offline POS engine</strong> — integer-only VAT maths, ESC/POS driver, Ed25519 licensing</li>
+      </ul></div>
     <div class="bc b2"><div class="bl">// years shipping</div><div class="bb" style="font-size:4.5rem">6+</div><div style="font-size:.7rem;color:var(--g);margin-top:.4rem">Production code · real impact</div></div>
     <div class="bc b3"><div class="bl">// based in</div><div style="font-size:2.5rem;margin-bottom:.5rem">🇧🇩</div><div class="bt">Dhaka</div></div>
     <div class="bc b4"><div class="bl">// frontend</div><div class="bt">React · Next.js · Vue.js</div><div class="bs">Storefronts, admin dashboards and clinical sites — TypeScript first.</div><div class="pw"><span class="pi b">React 18</span><span class="pi b">Next.js 14</span><span class="pi b">TypeScript</span><span class="pi b">Vue.js</span><span class="pi b">HTML5 / CSS</span></div></div>
